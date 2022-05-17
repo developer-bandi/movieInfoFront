@@ -15,13 +15,16 @@ const SignInContainer = () => {
     if (userid !== '' && password !== '') {
       try {
         console.log(process.env.REACT_APP_SECRET);
-        const userInfo = await axios.post(`http://localhost:8001/auth/login`, {
-          userid,
-          password: CryptoJS.AES.encrypt(
-            JSON.stringify(password),
-            process.env.REACT_APP_SECRET
-          ).toString(),
-        });
+        const userInfo = await axios.post(
+          `${process.env.REACT_APP_SERVER}/auth/login`,
+          {
+            userid,
+            password: CryptoJS.AES.encrypt(
+              JSON.stringify(password),
+              process.env.REACT_APP_SECRET
+            ).toString(),
+          }
+        );
         if (userInfo.status === 202) {
           alert(userInfo.data);
         } else {

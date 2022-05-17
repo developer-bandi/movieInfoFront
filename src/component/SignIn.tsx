@@ -13,7 +13,7 @@ const SignIn = ({ setId, setPassword, checkLogin }: SignInProps) => {
       <Title>로그인</Title>
       <section>
         <NaverLoginButton
-          href={'http://localhost:8001/auth/naver'}
+          href={`${process.env.REACT_APP_SERVER}/auth/naver`}
           target="_blank"
         >
           <NaverContentBlock>
@@ -22,7 +22,7 @@ const SignIn = ({ setId, setPassword, checkLogin }: SignInProps) => {
           </NaverContentBlock>
         </NaverLoginButton>
         <KakaoLoginButton
-          href={'http://localhost:8001/auth/kakao'}
+          href={`${process.env.REACT_APP_SERVER}/auth/kakao`}
           target="_blank"
         >
           <KakaoContentBlock>

@@ -38,7 +38,10 @@ const SignUpContainer = () => {
             nick,
           };
           console.log(userData);
-          await axios.post('http://localhost:8001/auth/join', userData);
+          await axios.post(
+            `${process.env.REACT_APP_SERVER}/auth/join`,
+            userData
+          );
           alert('회원가입에 성공하였습니다.');
           navigate('/signin');
         }
