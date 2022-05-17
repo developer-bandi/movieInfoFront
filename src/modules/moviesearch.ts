@@ -1,6 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import produce from 'immer';
 import { getMovieSearchResult } from '../lib/api';
+import { endLoading, startLoading } from './loading';
 
 const GET_MOVIESEARCHRESULT = 'moviesearch/GET_MOVIESEARCHRESULT' as const;
 const GET_MOVIESEARCHRESULT_SUCCESS =
@@ -47,8 +48,9 @@ function* getMovieSearchResultSaga(action: {
   payload: { name: string; page: number };
 }): any {
   try {
+    yield put(endLoading());
     const apiData = yield call(getMovieSearchResult, action.payload);
-
+    yield put(startLoading());
     yield put(getMovieSearchResultDataSuccess(apiData, action));
   } catch (e) {
     yield put(getMovieSearchResultDataFailure(e));

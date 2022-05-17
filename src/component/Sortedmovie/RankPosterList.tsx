@@ -138,6 +138,9 @@ const OrderButtonBlock = styled.div`
   width: 7rem;
   border-radius: 5px;
   display: flex;
+  @media screen and (max-width: 500px) {
+    width: 5rem;
+  }
 `;
 const OrderButton = styled.div<{ active: boolean }>`
   display: flex;
@@ -148,9 +151,9 @@ const OrderButton = styled.div<{ active: boolean }>`
   font-weight: bold;
 
   @media screen and (max-width: 500px) {
-    font-size: 15px;
+    font-size: 12px;
     margin: 0;
-    width: 3rem;
+    width: 2.5rem;
   }
 
   ${(props) =>

@@ -111,7 +111,7 @@ const PosterList = ({ title, result, listNumber }: PosterListProps) => {
 //이미지를 미리 로드해 두는 함수이다.
 
 const PosterListBlock = styled.section`
-  width: 100rem;
+  width: 89rem;
   height: 28rem;
   margin: auto;
   margin-top: 3rem;
@@ -127,30 +127,33 @@ const PosterListBlock = styled.section`
 
 const TitleBlock = styled.div`
   display: flex;
-  justify-content: center;
+  width: 89rem;
+  @media screen and (max-width: 500px) {
+    width: 100%;
+  }
 `;
 
 const Title = styled.h2`
-  width: 85rem;
+  width: 89rem;
   padding-left: 3rem;
   margin-bottom: 1rem;
   font-weight: bold;
   font-size: 50px;
 
   @media screen and (max-width: 500px) {
-    width: 21rem;
+    width: 100%;
     margin-bottom: 0;
     padding: 0;
     font-size: 15px;
+    margin-left: 1rem;
   }
 `;
 
 const PostersBlock = styled.div`
-  width: 100rem;
+  width: 89rem;
   height: 20rem;
   display: flex;
   align-items: center;
-  justify-content: center;
 
   @media screen and (max-width: 500px) {
     width: 100%;

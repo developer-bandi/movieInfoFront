@@ -1,16 +1,25 @@
+import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import Footer from '../component/common/Footer';
-import Header from '../component/common/Header';
+import Nav from '../component/common/Nav';
+import HeaderContainer from '../container/HeaderContainer';
 import PosterListContainer from '../container/RankPosterListContainer';
+import { startLoading } from '../modules/loading';
 import { getSortedMovie } from '../modules/sortedmoive';
 
 const Sortedmovie = () => {
   const dispatch = useDispatch();
-  dispatch(getSortedMovie());
+  useLayoutEffect(() => {
+    dispatch(getSortedMovie());
+    return () => {
+      dispatch(startLoading());
+    };
+  });
 
   return (
     <>
-      <Header />
+      <HeaderContainer />
+      <Nav />
       <PosterListContainer />
       <Footer />
     </>

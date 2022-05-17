@@ -1,11 +1,13 @@
 import Footer from '../component/common/Footer';
-import Header from '../component/common/Header';
+import Nav from '../component/common/Nav';
+import HeaderContainer from '../container/HeaderContainer';
 import SearchBarContainer from '../container/SearchBarContainer';
 import SearchResultContainer from '../container/SearchResultContainer';
 const Search = () => {
   return (
     <>
-      <Header />
+      <HeaderContainer />
+      <Nav />
       <SearchBarContainer />
       <SearchResultContainer />
       <Footer />

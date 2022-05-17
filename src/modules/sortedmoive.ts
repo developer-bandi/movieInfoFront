@@ -1,6 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import produce from 'immer';
 import { getsortedmovie } from '../lib/api';
+import { endLoading, startLoading } from './loading';
 
 const GET_SORTEDMOVIE = 'sortedmovie/GET_SORTEDMOVIE' as const;
 const GET_SORTEDMOVIE_SUCCESS = 'sortedmovie/GET_SORTEDMOVIE_SUCCESS' as const;
@@ -24,9 +25,10 @@ const getSortedMovieFailure = (e: any) => ({
 
 function* getSortedMovieSaga(): any {
   try {
+    yield put(startLoading());
     const sortedMovie = yield call(getsortedmovie);
-
     yield put(getSortedMovieSuccess(sortedMovie));
+    yield put(endLoading());
   } catch (e) {
     yield put(getSortedMovieFailure(e));
     throw e;

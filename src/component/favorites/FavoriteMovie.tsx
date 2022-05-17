@@ -5,14 +5,15 @@ import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import NullComponent from '../common/NullComponent';
 
-type LocalStorage = {
-  id: string;
-  name: string;
-  url: string;
+type serverType = {
+  id?: string;
+  movieId?: string;
+  movieName?: string;
+  posterPath?: string;
 };
 
 interface FavoriteMovieProps {
-  localData: LocalStorage[];
+  likeMovies: serverType[];
   dragStart: (e: any) => void;
   dragEnd: (e: any) => void;
   dragOver: (e: any) => void;
@@ -23,7 +24,7 @@ interface FavoriteMovieProps {
 }
 
 const FavoriteMovie = ({
-  localData,
+  likeMovies,
   dragEnd,
   dragOver,
   dragStart,
@@ -37,9 +38,9 @@ const FavoriteMovie = ({
 
   useEffect(() => {
     if (inView) {
-      if (localData.length > end) {
-        if (localData.length < end + 10) {
-          setEnd(localData.length);
+      if (likeMovies.length > end) {
+        if (likeMovies.length < end + 10) {
+          setEnd(likeMovies.length);
         } else {
           setEnd((end) => end + 10);
         }
@@ -49,39 +50,39 @@ const FavoriteMovie = ({
   // 즐겨찾기 항목의 무한 슬라이드 구현을위해 작성한 코드입니다. 10번째 항목이 화면에 보여질때 마다 항목이 10개씩 추가됩니다.
 
   useEffect(() => {
-    if (localData[0] !== undefined) {
+    if (likeMovies[0] !== undefined) {
       if (
-        localData[0].id !== 'default' &&
-        localData.length < 10 &&
-        localData.length !== 0
+        likeMovies[0].id !== 'default' &&
+        likeMovies.length < 10 &&
+        likeMovies.length !== 0
       ) {
-        setEnd(localData.length);
+        setEnd(likeMovies.length);
       }
     }
-  }, [localData]);
+  }, [likeMovies]);
   // 처음 렌더링시 항목이 10개보다 작을경우에 end의 초기값을 재설정하기위한 코드입니다.
 
-  return localData[0] === undefined || localData[0].id === 'default' ? (
+  return likeMovies[0] === undefined || likeMovies[0].id === 'default' ? (
     <NullComponent text={'저장된 즐겨찾기가 없습니다.'} />
   ) : (
     <FavoriteMovieBlock>
       <ContentBlock>
-        {localData.slice(0, end).map((data, index) => {
+        {likeMovies.slice(0, end).map((data, index) => {
           return (
             <Content
               ref={(index + 1) % 10 === 0 ? ref : null}
               key={data.id}
-              to={`/moviedetail/${data.id}`}
+              to={`/moviedetail/${data.movieId}`}
               name={index}
               draggable
               onDragStart={dragStart}
               onDragEnd={dragEnd}
             >
               <MovieImg
-                src={`https://image.tmdb.org/t/p/w500${data.url}`}
+                src={`https://image.tmdb.org/t/p/w500${data.posterPath}`}
                 alt=""
               ></MovieImg>
-              <Moviename>{data.name}</Moviename>
+              <Moviename>{data.movieName}</Moviename>
             </Content>
           );
         })}

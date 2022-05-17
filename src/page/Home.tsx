@@ -1,10 +1,11 @@
 import Footer from '../component/common/Footer';
-import Header from '../component/common/Header';
+import Nav from '../component/common/Nav';
 import NowShowingContainer from '../container/HomePosterListContainer';
 import { useDispatch } from 'react-redux';
 import { getHomePoster } from '../modules/homeposter';
 import FirstmoivevideoContainer from '../container/MovieVideoContainer';
 import { useEffect } from 'react';
+import HeaderContainer from '../container/HeaderContainer';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ const Home = () => {
 
   return (
     <>
-      <Header />
+      <HeaderContainer />
+      <Nav />
       <FirstmoivevideoContainer />
       <NowShowingContainer />
       <Footer></Footer>

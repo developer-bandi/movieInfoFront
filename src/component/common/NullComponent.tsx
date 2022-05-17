@@ -28,6 +28,9 @@ const Background = styled.div`
 const Text = styled.div`
   font-size: 30px;
   margin-top: 10rem;
+  @media screen and (max-width: 500px) {
+    font-size: 15px;
+  }
 `;
 
 export default NullComponent;

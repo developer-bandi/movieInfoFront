@@ -1,19 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import FavoriteMovie from '../component/favorites/FavoriteMovie';
+import { RootState } from '../modules';
+import { deleteLikemovie } from '../modules/likemovie';
 const FavoriteMovieContainer = () => {
-  const [data, setData] = useState([
-    { id: 'default', name: 'default', url: 'default' },
-  ]);
+  const likeMovies = useSelector((state: RootState) => state.movieLikeReducer);
   const [deleteBox, setDeleteBox] = useState(false); //드래그 시작시 , 취소시 드롭공간 on off 하기위한 값
   const [boxOver, setBoxOver] = useState('false'); //드래그 요소 드랍공간에 올라올시 투명도 관리를 위한 값
-
-  useEffect(() => {
-    let localData = localStorage.getItem('favoriteMovie');
-    if (localData != null) {
-      setData(JSON.parse(localData));
-    }
-  }, []);
-
+  const dispatch = useDispatch();
   const dragStart = (e: any) => {
     setDeleteBox(!deleteBox);
     e.dataTransfer.setData('text/plain', e.currentTarget.name);
@@ -27,15 +21,10 @@ const FavoriteMovieContainer = () => {
 
   const dropPoster = (e: any) => {
     setDeleteBox(!deleteBox);
-    const Data = data.filter((data, index) => {
-      if (index === +e.dataTransfer.getData('text/plain')) {
-        return false;
-      } else {
-        return true;
-      }
-    });
-    localStorage.setItem('favoriteMovie', JSON.stringify(Data));
-    setData(Data);
+    const id = likeMovies[+e.dataTransfer.getData('text/plain')].id;
+    if (id !== undefined) {
+      dispatch(deleteLikemovie(id, +e.dataTransfer.getData('text/plain')));
+    }
   };
   //드래그가 드롭공간에 드롭될경우 해당되는 인덱스의 데이터를 배열에서 삭제한뒤, state와 localstorage에 저장한다.
 
@@ -59,7 +48,7 @@ const FavoriteMovieContainer = () => {
       dropPoster={dropPoster}
       deleteBox={deleteBox}
       boxOver={boxOver}
-      localData={data}
+      likeMovies={likeMovies}
     />
   );
 };

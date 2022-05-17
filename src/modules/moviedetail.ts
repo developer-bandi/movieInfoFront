@@ -1,16 +1,24 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
+import { all, call, put, takeLatest } from 'redux-saga/effects';
 import produce from 'immer';
-import { getmoviedetail } from '../lib/api';
+import {
+  getLikemovieapi,
+  getMovieCommentapi,
+  getmoviedetail,
+} from '../lib/api';
+import { getMovieCommentSuccess } from './moviecomment';
+import { getLikemovieSuccess } from './likemovie';
+import { endLoading, startLoading } from './loading';
 
 const GET_MOVIEDETAIL = 'moviedetail/GET_MOVIEDETAIL' as const;
 const GET_MOVIEDETAIL_SUCCESS = 'moviedetail/GET_MOVIEDETAIL_SUCCESS' as const;
 const GET_MOVIEDETAIL_FAILURE = 'moviedetail/GET_MOVIEDETAIL_FAILURE' as const;
 const INITIALIZE_MOVIEDETAIL = 'moviedetail/INITIALIZE_MOVIEDETAIL' as const;
 
-export const getMovieDetail = (id: string) => ({
+export const getMovieDetail = (id: string, userid: string | null) => ({
   type: GET_MOVIEDETAIL,
   payload: {
-    id: id,
+    id,
+    userid,
   },
 });
 
@@ -33,13 +41,31 @@ export const initializeMovieDetail = () => ({
 
 function* getMovieDetailSaga(action: {
   type: string;
-  payload: { id: string };
+  payload: { id: string; userid: string };
 }): any {
   try {
-    const movieDetail = yield call(getmoviedetail, action.payload.id);
-    yield put(getMovieDetailSuccess(movieDetail));
+    yield put(startLoading());
+    if (action.payload.userid === null) {
+      const movieDetail = yield all([
+        call(getmoviedetail, action.payload.id),
+        call(getMovieCommentapi, action.payload.id),
+      ]);
+      yield put(getMovieDetailSuccess(movieDetail[0]));
+      yield put(getMovieCommentSuccess(movieDetail[1]));
+    } else {
+      const movieDetail = yield all([
+        call(getmoviedetail, action.payload.id),
+        call(getMovieCommentapi, action.payload.id),
+        call(getLikemovieapi, action.payload.userid),
+      ]);
+      yield put(getMovieDetailSuccess(movieDetail[0]));
+      yield put(getMovieCommentSuccess(movieDetail[1]));
+      yield put(getLikemovieSuccess(movieDetail[2]));
+    }
+    yield put(endLoading());
   } catch (e) {
     yield put(getMovieDetailFailure(e));
+    yield put(endLoading());
     throw e;
   }
 }
