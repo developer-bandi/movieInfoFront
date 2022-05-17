@@ -2,7 +2,7 @@
 
 간단한 영화 소개 사이트입니다. 디자인과 기능은 네이버, 다음, 넷플릭스, 왓챠, 웨이브를 참고하였습니다. 영화 정보 는 TMDB에서 제공하는 open api를 사용하였습니다.
 
-사이트: https://movieuse.netlify.app
+사이트: https://movieinfoservice.netlify.app/
 
 # 2.기술스택
 
