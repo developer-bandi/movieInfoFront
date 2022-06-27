@@ -1,6 +1,6 @@
-import Nav from '../component/common/Nav';
-import HeaderContainer from '../container/HeaderContainer';
-import SignUpContainer from '../container/SignUpContainer';
+import Nav from '../component/common/Navigation/Presentational';
+import HeaderContainer from '../component/common/Header/Container';
+import SignUpContainer from '../component/SignUp/SignUpContainer';
 
 const SignUpPage = () => {
   return (

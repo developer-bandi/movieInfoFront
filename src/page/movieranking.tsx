@@ -1,9 +1,9 @@
 import { useLayoutEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import Footer from '../component/common/Footer';
-import Nav from '../component/common/Nav';
-import HeaderContainer from '../container/HeaderContainer';
-import PosterListContainer from '../container/RankPosterListContainer';
+import Footer from '../component/common/Footer/Presentational';
+import Nav from '../component/common/Navigation/Presentational';
+import HeaderContainer from '../component/common/Header/Container';
+import PosterListContainer from '../component/Sortedmovie/Container';
 import { startLoading } from '../modules/loading';
 import { getSortedMovie } from '../modules/sortedmoive';
 

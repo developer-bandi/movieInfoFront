@@ -1,11 +1,11 @@
-import Footer from '../component/common/Footer';
-import Nav from '../component/common/Nav';
-import NowShowingContainer from '../container/HomePosterListContainer';
+import Footer from '../component/common/Footer/Presentational';
+import Nav from '../component/common/Navigation/Presentational';
+import NowShowingContainer from '../component/Home/PosterList/Container';
 import { useDispatch } from 'react-redux';
 import { getHomePoster } from '../modules/homeposter';
-import FirstmoivevideoContainer from '../container/MovieVideoContainer';
+import FirstmoivevideoContainer from '../component/Home/MovieVideo/Container';
 import { useEffect } from 'react';
-import HeaderContainer from '../container/HeaderContainer';
+import HeaderContainer from '../component/common/Header/Container';
 
 const Home = () => {
   const dispatch = useDispatch();

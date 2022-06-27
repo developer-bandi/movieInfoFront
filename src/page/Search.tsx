@@ -1,8 +1,8 @@
-import Footer from '../component/common/Footer';
-import Nav from '../component/common/Nav';
-import HeaderContainer from '../container/HeaderContainer';
-import SearchBarContainer from '../container/SearchBarContainer';
-import SearchResultContainer from '../container/SearchResultContainer';
+import Footer from '../component/common/Footer/Presentational';
+import Nav from '../component/common/Navigation/Presentational';
+import HeaderContainer from '../component/common/Header/Container';
+import SearchBarContainer from '../component/Search/SearchBar/Container';
+import SearchResultContainer from '../component/Search/SearchResult/Container';
 const Search = () => {
   return (
     <>

@@ -2,12 +2,12 @@
 import { useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Footer from '../component/common/Footer';
-import Nav from '../component/common/Nav';
-import Loading from '../component/Loading';
-import HeaderContainer from '../container/HeaderContainer';
-import MovieCommentContainer from '../container/MovieCommentContainer';
-import MovieContentContainer from '../container/MovieContentContainer';
+import Footer from '../component/common/Footer/Presentational';
+import Nav from '../component/common/Navigation/Presentational';
+import Loading from '../component/common/Loading/Presentational';
+import HeaderContainer from '../component/common/Header/Container';
+import MovieCommentContainer from '../component/Moviedetail/Comment/Container';
+import MovieContentContainer from '../component/Moviedetail/DetailInfo/Container';
 import { RootState } from '../modules';
 import { startLoading } from '../modules/loading';
 import { getMovieDetail } from '../modules/moviedetail';
