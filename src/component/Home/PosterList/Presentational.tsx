@@ -25,27 +25,28 @@ const PosterList = ({ title, result, listNumber }: PosterListProps) => {
   const [end, setend] = useState(listNumber.end);
   const dispatch = useDispatch();
 
-  const prevpage = () => {
-    setstart((start) => start - 5);
-    setend((end) => end - 5);
+  const changePage = (position: String) => {
+    const chageStartValue = position === 'prev' ? start - 5 : start + 5;
+    const chageEndValue = position === 'prev' ? end - 5 : end + 5;
+    setstart(chageStartValue);
+    setend(chageEndValue);
     if (title === '현재상영중') {
-      dispatch(getNowShowingPosterposition({ start: start - 5, end: end - 5 }));
+      dispatch(
+        getNowShowingPosterposition({
+          start: chageStartValue,
+          end: chageEndValue,
+        })
+      );
     } else {
-      dispatch(getNowCommingPosterposition({ start: start - 5, end: end - 5 }));
+      dispatch(
+        getNowCommingPosterposition({
+          start: chageStartValue,
+          end: chageEndValue,
+        })
+      );
     }
   };
-  //이전페이지로 이동한뒤, 이동을 리덕스에 저장한다.
-
-  const nextpage = () => {
-    setstart((start) => start + 5);
-    setend((end) => end + 5);
-    if (title === '현재상영중') {
-      dispatch(getNowShowingPosterposition({ start: start + 5, end: end + 5 }));
-    } else {
-      dispatch(getNowCommingPosterposition({ start: start + 5, end: end + 5 }));
-    }
-  };
-  //이후 페이지로 이동한뒤 이동을 리덕스에 저장한다.
+  //매개 변수 값에 따라 이전 혹은 이후 페이지로 이동한뒤, 이동을 리덕스에 저장한다.
 
   return (
     <styles.MainBlock>
@@ -57,7 +58,7 @@ const PosterList = ({ title, result, listNumber }: PosterListProps) => {
           start === 0 ? (
             <styles.NullButton />
           ) : (
-            <styles.PageButton onClick={prevpage}>
+            <styles.PageButton onClick={() => changePage('prev')}>
               <FiChevronLeft size={40} />
             </styles.PageButton>
           ) /*이전으로 넘길수 없으면 빈박스만 렌더링하고 버튼을 누르면 start와 end값에 5를 뺀다*/
@@ -102,7 +103,7 @@ const PosterList = ({ title, result, listNumber }: PosterListProps) => {
           end === result.length ? (
             <styles.NullButton />
           ) : (
-            <styles.PageButton onClick={nextpage}>
+            <styles.PageButton onClick={() => changePage('next')}>
               <FiChevronRight size={40} />
             </styles.PageButton>
           ) /*이후로 넘길수 없으면 빈박스만 렌더링하고 버튼을 누르면 start와 end값에 5를 추가 */

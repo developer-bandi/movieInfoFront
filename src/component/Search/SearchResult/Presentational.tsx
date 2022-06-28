@@ -20,76 +20,29 @@ interface Result {
 }
 
 interface SearchResultProps {
-  data: {
-    info: Info;
-    result: Result[][];
-  };
-  dispatch: any;
+  searchResult: any;
+  prevPage: () => void;
+  nextPage: () => void;
+  activepage: number;
+  start: number;
+  end: number;
+  goPage: (index: number) => void;
 }
 
-const SearchResult = ({ data, dispatch }: SearchResultProps) => {
-  const [start, setstart] = useState(1); //현재 페이지네이션으로 보여주고있는 첫페이지
-  const [end, setend] = useState(0); //현재 페이지네이션으로 보여주고있는 마지막 페이지
-  const [activepage, setactivepage] = useState(1); //현재 결과로 렌더링된 페이지
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-    });
-  });
-  //리렌더링시 맨위로, 즉 페이지를 옮길때 맨위로 올라갑니다.
-
-  useEffect(() => {
-    if (data.info.totalpage <= 5) {
-      setend(data.info.totalpage);
-    } else {
-      setend(5);
-    }
-  }, []);
-
-  const MovePage = (position: number) => {
-    if (data.result[activepage + position - 1] === undefined) {
-      dispatch(
-        getMovieSearchResultData({
-          name: data.info.name,
-          page: activepage + position,
-        })
-      );
-    }
-    setactivepage(activepage + position);
-  };
-
-  const prevPage = () => {
-    if (activepage % 5 === 1) {
-      if (end === data.info.totalpage) {
-        setstart(start - 5);
-        setend(end - (end % 5));
-      } else {
-        setstart(start - 5);
-        setend(end - 5);
-      }
-    }
-    MovePage(-1);
-  };
-  //다음페이지로 이동하는데, 이때 페이지네이션하는 페이지의 마지막일경우 다음 페이지네이션을 보여줍니다.
-  const nextPage = () => {
-    if (activepage % 5 === 0) {
-      if (data.info.totalpage > end + 5) {
-        setstart(start + 5);
-        setend(end + 5);
-      } else {
-        setstart(start + 5);
-        setend(data.info.totalpage);
-      }
-    }
-    MovePage(+1);
-  };
-  //이전페이지로 이동하는데, 이때 페이지네이션하는 페이지의 처음일경우 이전 페이지네이션을 보여줍니다.
+const SearchResult = ({
+  searchResult,
+  activepage,
+  prevPage,
+  nextPage,
+  start,
+  end,
+  goPage,
+}: SearchResultProps) => {
   return (
     <styles.MainBlock>
-      {data.result[activepage - 1] === undefined
+      {searchResult.result[activepage - 1] === undefined
         ? null
-        : data.result[activepage - 1].map((data) => {
+        : searchResult.result[activepage - 1].map((data: any) => {
             return (
               <styles.PosterBlock to={`/moviedetail/${data.id}`} key={data.id}>
                 <styles.MovieImg
@@ -129,17 +82,7 @@ const SearchResult = ({ data, dispatch }: SearchResultProps) => {
           return (
             <styles.PageButton
               active={activepage === index + start}
-              onClick={function goPage(e) {
-                if (data.result[index + start - 1] === undefined) {
-                  dispatch(
-                    getMovieSearchResultData({
-                      name: data.info.name,
-                      page: index + start,
-                    })
-                  );
-                }
-                setactivepage(index + start);
-              }}
+              onClick={() => goPage(index)}
               key={index}
             >
               {index + start}
@@ -148,7 +91,7 @@ const SearchResult = ({ data, dispatch }: SearchResultProps) => {
         })}
         <styles.MovePage
           onClick={nextPage}
-          active={activepage === data.info.totalpage ? 'true' : 'false'}
+          active={activepage === searchResult.info.totalpage ? 'true' : 'false'}
         >
           <IoIosArrowForward />
         </styles.MovePage>

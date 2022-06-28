@@ -14,6 +14,7 @@ const NowShowingContainer = () => {
     }
   }, [data]);
   //이미지를 미리 로드하여 포스터 전환시 포스터를 빠르게 보여줍니다.
+
   return (
     <>
       <PosterList
