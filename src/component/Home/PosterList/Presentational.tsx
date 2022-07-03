@@ -2,51 +2,27 @@ import { useState } from 'react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import nullmovie from '../../../tempdata/nullmovie.webp';
 import { useDispatch } from 'react-redux';
-import {
-  getNowCommingPosterposition,
-  getNowShowingPosterposition,
-} from '../../../modules/posterposition';
 import styles from './Style';
-type Result = {
-  id: string;
-  title: string;
-  overview: string;
-  voteAverage: number;
-  posterPath: string;
-};
+import { HomePosterState, movePage } from '../../../store/homePoster/Reducer';
 
 interface PosterListProps {
   title: string;
-  result: Result[];
-  listNumber: { start: number; end: number };
+  postersData: HomePosterState;
+  page: number;
 }
-const PosterList = ({ title, result, listNumber }: PosterListProps) => {
-  const [start, setstart] = useState(listNumber.start);
-  const [end, setend] = useState(listNumber.end);
+const PosterList = ({ title, postersData, page }: PosterListProps) => {
+  const [nowPage, setNowPage] = useState(page);
   const dispatch = useDispatch();
 
-  const changePage = (position: String) => {
-    const chageStartValue = position === 'prev' ? start - 5 : start + 5;
-    const chageEndValue = position === 'prev' ? end - 5 : end + 5;
-    setstart(chageStartValue);
-    setend(chageEndValue);
-    if (title === '현재상영중') {
-      dispatch(
-        getNowShowingPosterposition({
-          start: chageStartValue,
-          end: chageEndValue,
-        })
-      );
-    } else {
-      dispatch(
-        getNowCommingPosterposition({
-          start: chageStartValue,
-          end: chageEndValue,
-        })
-      );
-    }
+  const changePage = (position: string) => {
+    setNowPage(position === 'prev' ? nowPage - 1 : nowPage + 1);
+    dispatch(
+      movePage({
+        kind: title === '현재상영중' ? 'nowShowingInfo' : 'nowCommingInfo',
+        page: nowPage + 1,
+      })
+    );
   };
-  //매개 변수 값에 따라 이전 혹은 이후 페이지로 이동한뒤, 이동을 리덕스에 저장한다.
 
   return (
     <styles.MainBlock>
@@ -54,53 +30,61 @@ const PosterList = ({ title, result, listNumber }: PosterListProps) => {
         <styles.Title>{title}</styles.Title>
       </styles.TitleBlock>
       <styles.PosterListBlock>
+        {page === 0 ? (
+          <styles.NullButton />
+        ) : (
+          <styles.PageButton onClick={() => changePage('prev')}>
+            <FiChevronLeft size={40} />
+          </styles.PageButton>
+        )}
         {
-          start === 0 ? (
-            <styles.NullButton />
-          ) : (
-            <styles.PageButton onClick={() => changePage('prev')}>
-              <FiChevronLeft size={40} />
-            </styles.PageButton>
-          ) /*이전으로 넘길수 없으면 빈박스만 렌더링하고 버튼을 누르면 start와 end값에 5를 뺀다*/
-        }
-        {
-          result[0].title === 'default'
-            ? result.map((data, index) => {
+          !postersData.loading && postersData.content.posterList !== undefined
+            ? postersData.content.posterList[
+                title === '현재상영중' ? 'nowShowingInfo' : 'nowCommingInfo'
+              ]
+                .slice((page - 1) * 5, 5 * page)
+                .map((posterData, index) => {
+                  return (
+                    <>
+                      <styles.PosterBlock
+                        to={`/moviedetail/${posterData.id}`}
+                        key={index}
+                      >
+                        <styles.MovieImg
+                          src={`https://image.tmdb.org/t/p/w500${posterData.posterPath}`}
+                          alt="x"
+                        ></styles.MovieImg>
+                        <styles.MovieInfo className="movieinfo">
+                          {posterData.overview.length > 170
+                            ? posterData.overview.substring(0, 170) + '...'
+                            : posterData.overview}
+                        </styles.MovieInfo>
+                        <styles.MovieRating className="rating">
+                          평점 {posterData.voteAverage}
+                        </styles.MovieRating>
+                        <styles.MoiveName className="moviename">
+                          {posterData.title.length > 12
+                            ? posterData.title.substring(0, 12) + '...'
+                            : posterData.title}
+                        </styles.MoiveName>
+                      </styles.PosterBlock>
+                    </>
+                  );
+                })
+            : new Array(5).map((undefinedData, index) => {
                 return (
                   <styles.NullPosterBlock key={index}>
                     <styles.MovieImg src={nullmovie} alt="x" />
                   </styles.NullPosterBlock>
                 );
-              })
-            : result.slice(start, end).map((data, index) => {
-                return (
-                  <styles.PosterBlock
-                    to={`/moviedetail/${data.id}`}
-                    key={index}
-                  >
-                    <styles.MovieImg
-                      src={`https://image.tmdb.org/t/p/w500${data.posterPath}`}
-                      alt="x"
-                    ></styles.MovieImg>
-                    <styles.MovieInfo className="movieinfo">
-                      {data.overview.length > 170
-                        ? data.overview.substring(0, 170) + '...'
-                        : data.overview}
-                    </styles.MovieInfo>
-                    <styles.MovieRating className="rating">
-                      평점 {data.voteAverage}
-                    </styles.MovieRating>
-                    <styles.MoiveName className="moviename">
-                      {data.title.length > 12
-                        ? data.title.substring(0, 12) + '...'
-                        : data.title}
-                    </styles.MoiveName>
-                  </styles.PosterBlock>
-                );
               }) /*주어진 start,end범위에 따라 포스터에 마우스를 올리면 요약정보를 보여주는 포스터들 5개를 렌더링 */
         }
         {
-          end === result.length ? (
+          postersData.content.posterList === undefined ||
+          page * 5 >=
+            postersData.content.posterList[
+              title === '현재상영중' ? 'nowShowingInfo' : 'nowCommingInfo'
+            ].length ? (
             <styles.NullButton />
           ) : (
             <styles.PageButton onClick={() => changePage('next')}>

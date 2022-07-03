@@ -7,9 +7,9 @@ import styles from './Style';
 interface Props {
   uploadComment: (e: { type: string; key?: string }) => void;
   settingComment: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  deleteComment: (id: string, index: number) => void;
+  deleteComment: (id: number, index: number) => void;
   commentList: any;
-  loginedUserId: undefined | string;
+  loginedUserId: undefined | number;
 }
 const MovieComment = ({
   uploadComment,

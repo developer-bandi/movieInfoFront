@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FavoriteMovie from './Presentational';
-import { RootState } from '../../modules';
-import { deleteLikemovie } from '../../modules/likemovie';
+import { ReducerType } from '../../store';
+import { deleteFavoriteMovie } from '../../store/favoriteMovie/Reducer';
 const FavoriteMovieContainer = () => {
-  const likeMovies = useSelector((state: RootState) => state.movieLikeReducer);
+  const likeMovies = useSelector(
+    (state: ReducerType) => state.favoriteMovie.content
+  );
   const [deleteBox, setDeleteBox] = useState(false); //드래그 시작시 , 취소시 드롭공간 on off 하기위한 값
   const [boxOver, setBoxOver] = useState('false'); //드래그 요소 드랍공간에 올라올시 투명도 관리를 위한 값
   const dispatch = useDispatch();
@@ -21,9 +23,17 @@ const FavoriteMovieContainer = () => {
 
   const dropPoster = (e: any) => {
     setDeleteBox(!deleteBox);
-    const id = likeMovies[+e.dataTransfer.getData('text/plain')].id;
+    const id =
+      likeMovies !== undefined
+        ? likeMovies[+e.dataTransfer.getData('text/plain')].id
+        : undefined;
     if (id !== undefined) {
-      dispatch(deleteLikemovie(id, +e.dataTransfer.getData('text/plain')));
+      dispatch(
+        deleteFavoriteMovie({
+          id,
+          index: +e.dataTransfer.getData('text/plain'),
+        })
+      );
     }
   };
   //드래그가 드롭공간에 드롭될경우 해당되는 인덱스의 데이터를 배열에서 삭제한뒤, state와 localstorage에 저장한다.

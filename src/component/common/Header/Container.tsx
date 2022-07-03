@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { ReducerType } from '../../../store';
+import { doLogout } from '../../../store/user/Reducer';
 import Header from './Presentational';
-import { RootState } from '../../../modules';
-import { doLogout } from '../../../modules/user';
 
 const HeaderContainer = () => {
-  const loginUser = useSelector((state: RootState) => state.userReducer);
+  const loginUser = useSelector((state: ReducerType) => state.user);
   const dispatch = useDispatch();
   const logout = () => {
     dispatch(doLogout());
   };
-  if (loginUser.login) {
-    return <Header nick={loginUser.nick} logout={logout} />;
+  if (loginUser.content !== undefined) {
+    return <Header nick={loginUser.content.nick} logout={logout} />;
   } else {
     return <Header />;
   }

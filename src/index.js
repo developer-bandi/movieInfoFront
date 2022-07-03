@@ -4,19 +4,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { applyMiddleware, createStore } from 'redux';
-import rootReducer, { rootSaga } from './modules';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer, { rootSaga } from './store';
 
 const sagaMiddleware = createSagaMiddleware();
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(sagaMiddleware))
-);
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: [sagaMiddleware],
+  devTools: true,
+});
 
+// saga를 실행
 sagaMiddleware.run(rootSaga);
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

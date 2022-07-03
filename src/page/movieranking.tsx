@@ -4,16 +4,12 @@ import Footer from '../component/common/Footer/Presentational';
 import Nav from '../component/common/Navigation/Presentational';
 import HeaderContainer from '../component/common/Header/Container';
 import PosterListContainer from '../component/Sortedmovie/Container';
-import { startLoading } from '../modules/loading';
-import { getSortedMovie } from '../modules/sortedmoive';
+import { getMovieRank } from '../store/movieRank/Reducer';
 
 const Sortedmovie = () => {
   const dispatch = useDispatch();
   useLayoutEffect(() => {
-    dispatch(getSortedMovie());
-    return () => {
-      dispatch(startLoading());
-    };
+    dispatch(getMovieRank());
   });
 
   return (

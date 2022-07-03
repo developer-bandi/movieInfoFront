@@ -3,7 +3,7 @@ import styles from './Style';
 
 interface SearchBarProps {
   latest: string[];
-  searchMovie: any;
+  searchMovies: any;
   deleteComment: Function;
   settingvalue: React.ChangeEventHandler<HTMLInputElement>;
   value: string;
@@ -11,7 +11,7 @@ interface SearchBarProps {
 
 const SearchBar = ({
   latest,
-  searchMovie,
+  searchMovies,
   deleteComment,
   settingvalue,
   value,
@@ -26,12 +26,12 @@ const SearchBar = ({
       <styles.InputBlock>
         <styles.SearchInput
           type="text"
-          onKeyPress={searchMovie}
+          onKeyPress={searchMovies}
           onChange={settingvalue}
           onClick={showLatest}
           value={value}
         ></styles.SearchInput>
-        <styles.SearchButton onClick={searchMovie}></styles.SearchButton>
+        <styles.SearchButton onClick={searchMovies}></styles.SearchButton>
       </styles.InputBlock>
       <styles.LatestSearchListBlock active={focus}>
         {latest[0] === 'default' ? (
@@ -41,7 +41,7 @@ const SearchBar = ({
         ) : (
           latest.map((data, index) => (
             <styles.LatestSearch key={index}>
-              <div onClick={searchMovie}>{data}</div>
+              <div onClick={searchMovies}>{data}</div>
               <styles.DeleteButton
                 onClick={(e) => {
                   deleteComment(index);

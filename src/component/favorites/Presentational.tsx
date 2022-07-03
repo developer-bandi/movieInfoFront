@@ -1,6 +1,7 @@
 /*eslint-disable*/
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { FavoriteMovieApiData } from '../../types/apiType/favoriteMovie';
 import NullComponent from '../common/Error/Presentational';
 import styles from './Style';
 
@@ -12,7 +13,7 @@ type serverType = {
 };
 
 interface FavoriteMovieProps {
-  likeMovies: serverType[];
+  likeMovies: FavoriteMovieApiData | undefined;
   dragStart: (e: any) => void;
   dragEnd: (e: any) => void;
   dragOver: (e: any) => void;
@@ -36,12 +37,14 @@ const FavoriteMovie = ({
   const [ref, inView] = useInView(); //무한스크롤 훅
 
   useEffect(() => {
-    if (inView) {
-      if (likeMovies.length > end) {
-        if (likeMovies.length < end + 10) {
-          setEnd(likeMovies.length);
-        } else {
-          setEnd((end) => end + 10);
+    if (likeMovies !== undefined) {
+      if (inView) {
+        if (likeMovies.length > end) {
+          if (likeMovies.length < end + 10) {
+            setEnd(likeMovies.length);
+          } else {
+            setEnd((end) => end + 10);
+          }
         }
       }
     }
@@ -49,19 +52,17 @@ const FavoriteMovie = ({
   // 즐겨찾기 항목의 무한 슬라이드 구현을위해 작성한 코드입니다. 10번째 항목이 화면에 보여질때 마다 항목이 10개씩 추가됩니다.
 
   useEffect(() => {
-    if (likeMovies[0] !== undefined) {
-      if (
-        likeMovies[0].id !== 'default' &&
-        likeMovies.length < 10 &&
-        likeMovies.length !== 0
-      ) {
-        setEnd(likeMovies.length);
+    if (likeMovies !== undefined) {
+      if (likeMovies[0] !== undefined) {
+        if (likeMovies.length < 10 && likeMovies.length !== 0) {
+          setEnd(likeMovies.length);
+        }
       }
     }
   }, [likeMovies]);
   // 처음 렌더링시 항목이 10개보다 작을경우에 end의 초기값을 재설정하기위한 코드입니다.
 
-  return likeMovies[0] === undefined || likeMovies[0].id === 'default' ? (
+  return likeMovies === undefined ? (
     <NullComponent text={'저장된 즐겨찾기가 없습니다.'} />
   ) : (
     <styles.MainBlock>

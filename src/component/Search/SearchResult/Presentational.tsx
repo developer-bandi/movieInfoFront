@@ -1,10 +1,9 @@
 /*eslint-disable*/
 import nullmovie from '../../../tempdata/nullmovie.webp';
-import { useEffect, useState } from 'react';
-import { getMovieSearchResultData } from '../../../modules/moviesearch';
 import { IoIosArrowBack } from 'react-icons/io';
 import { IoIosArrowForward } from 'react-icons/io';
 import styles from './Style';
+import { MovieSearchState } from '../../../store/movieSearch/Reducer';
 
 interface Info {
   name: string;
@@ -20,7 +19,7 @@ interface Result {
 }
 
 interface SearchResultProps {
-  searchResult: any;
+  searchResult: MovieSearchState;
   prevPage: () => void;
   nextPage: () => void;
   activepage: number;
@@ -40,31 +39,36 @@ const SearchResult = ({
 }: SearchResultProps) => {
   return (
     <styles.MainBlock>
-      {searchResult.result[activepage - 1] === undefined
+      {searchResult.content.searchResult === undefined
         ? null
-        : searchResult.result[activepage - 1].map((data: any) => {
+        : searchResult.content.searchResult.results.map((poserInfo) => {
             return (
-              <styles.PosterBlock to={`/moviedetail/${data.id}`} key={data.id}>
+              <styles.PosterBlock
+                to={`/moviedetail/${poserInfo.id}`}
+                key={poserInfo.id}
+              >
                 <styles.MovieImg
                   src={
-                    data.posterPath === null
+                    poserInfo.posterPath === null
                       ? nullmovie
-                      : `https://image.tmdb.org/t/p/w500${data.posterPath}`
+                      : `https://image.tmdb.org/t/p/w500${poserInfo.posterPath}`
                   }
                   alt="x"
                 />
                 <styles.MovieInfoBlock>
-                  <styles.Title> {data.title}</styles.Title>
+                  <styles.Title> {poserInfo.title}</styles.Title>
                   <styles.MovieMoreInfoBlock>
                     <styles.InfoTitle>개봉</styles.InfoTitle>
                     <styles.InfoContent>
-                      {data.release === '' ? '정보 없음' : data.release}
+                      {poserInfo.release === ''
+                        ? '정보 없음'
+                        : poserInfo.release}
                     </styles.InfoContent>
                   </styles.MovieMoreInfoBlock>
                   <styles.MovieMoreInfoBlock>
                     <styles.InfoTitle>평점</styles.InfoTitle>
                     <styles.InfoContent>
-                      {data.rate === 0 ? '평가중' : data.rate}
+                      {poserInfo.rate === 0 ? '평가중' : poserInfo.rate}
                     </styles.InfoContent>
                   </styles.MovieMoreInfoBlock>
                 </styles.MovieInfoBlock>
@@ -91,7 +95,11 @@ const SearchResult = ({
         })}
         <styles.MovePage
           onClick={nextPage}
-          active={activepage === searchResult.info.totalpage ? 'true' : 'false'}
+          active={
+            activepage === searchResult.content.searchResult?.totalPage
+              ? 'true'
+              : 'false'
+          }
         >
           <IoIosArrowForward />
         </styles.MovePage>

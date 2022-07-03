@@ -1,33 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { searchMovie } from '../../../store/movieSearch/Reducer';
 import SearchBar from './Presentational';
-import {
-  getMovieSearchResultData,
-  initializeMovieSearchResult,
-} from '../../../modules/moviesearch';
 
 const SearchBarContainer = () => {
   const [value, setvalue] = useState('');
   const [latest, setlatest] = useState(['default']);
   const dispatch = useDispatch();
 
-  const searchMovie = (e: {
+  const searchMovies = (e: {
     key?: string;
     type: string;
     target: { innerText: string; tagName: string };
   }) => {
+    console.log(1);
     if (
       (e.type === 'click' && e.key === undefined) ||
       (e.type === 'keypress' && e.key === 'Enter')
     ) {
       //클릭 엔터 모두 영화를 검색할수 있게 합니다.
+      console.log(2);
       let tempValue = value;
       if (e.target.tagName === 'DIV') {
         //이벤트 발생이 div태그 즉 페이지 버튼에 의한 것이면 인덱스를 따로 가져옵니다.
         tempValue = e.target.innerText;
       }
-      dispatch(getMovieSearchResultData({ name: tempValue, page: 1 }));
-      dispatch(initializeMovieSearchResult());
+      dispatch(searchMovie({ keyword: tempValue, page: 1 }));
 
       if (latest.length === 5) {
         setlatest([latest[1], latest[2], latest[3], latest[4], tempValue]);
@@ -71,7 +69,7 @@ const SearchBarContainer = () => {
   return (
     <SearchBar
       latest={latest}
-      searchMovie={searchMovie}
+      searchMovies={searchMovies}
       deleteComment={deleteComment}
       settingvalue={settingvalue}
       value={value}

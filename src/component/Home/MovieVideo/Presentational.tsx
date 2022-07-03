@@ -1,7 +1,7 @@
 import ReactPlayer from 'react-player/lazy';
 import styles from './Style';
 interface MovieVideoProps {
-  moviekey: string | null;
+  moviekey: string | undefined;
 }
 
 const MovieVideo = ({ moviekey }: MovieVideoProps) => {

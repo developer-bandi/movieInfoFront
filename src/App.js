@@ -10,7 +10,7 @@ import SignUpPage from './page/SignUpPage';
 import SignInPage from './page/SignInPage';
 import { useDispatch } from 'react-redux';
 import { useLayoutEffect } from 'react';
-import { checkLoginuser } from './modules/user';
+import { checkLoginuser } from './store/user/Reducer';
 
 function App() {
   const dispatch = useDispatch();

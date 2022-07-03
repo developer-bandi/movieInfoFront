@@ -2,29 +2,27 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import MovieComment from './Presentational';
-import { RootState } from '../../../modules';
+import { ReducerType } from '../../../store';
 import {
   addMovieComment,
   deleteMovieComment,
-} from '../../../modules/moviecomment';
+} from '../../../store/movieCommet/Reducer';
+import MovieComment from './Presentational';
 
 const MovieCommentContainer = () => {
   const [comment, setComment] = useState('');
-  const { movieid } = useParams<'movieid'>();
+  const { movieid } = useParams<'movieid'>() as { movieid: string };
   const dispatch = useDispatch();
-  const commentList = useSelector(
-    (state: RootState) => state.movieCommentReducer
-  );
-  const loginedUser = useSelector((state: RootState) => state.userReducer);
+  const commentList = useSelector((state: ReducerType) => state.moiveComment);
+  const loginedUser = useSelector((state: ReducerType) => state.user);
 
   const uploadComment = (e: { type: string; key?: string }) => {
     if (
       (e.type === 'click' && e.key === undefined) ||
       (e.type === 'keypress' && e.key === 'Enter')
     ) {
-      if (loginedUser.login) {
-        dispatch(addMovieComment(movieid || 'default', comment));
+      if (loginedUser.content) {
+        dispatch(addMovieComment({ movieId: movieid, content: comment }));
       } else {
         alert('로그인을 해주세요');
       }
@@ -35,8 +33,8 @@ const MovieCommentContainer = () => {
     setComment(e.target.value);
   };
 
-  const deleteComment = (id: string, index: number) => {
-    dispatch(deleteMovieComment(id, index));
+  const deleteComment = (id: number, index: number) => {
+    dispatch(deleteMovieComment({ id, index }));
   };
   return (
     <MovieComment
@@ -44,7 +42,7 @@ const MovieCommentContainer = () => {
       settingComment={settingComment}
       deleteComment={deleteComment}
       commentList={commentList}
-      loginedUserId={loginedUser.id}
+      loginedUserId={loginedUser.content?.id}
     ></MovieComment>
   );
 };
