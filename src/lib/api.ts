@@ -8,8 +8,10 @@ export const axiosGetMovieRank = async () => {
   return axios.get(`${process.env.REACT_APP_SERVER}/movieapi/rank`);
 };
 
-export const axiosGetMovieDetail = (id: number) => {
-  return axios.get(`${process.env.REACT_APP_SERVER}/movieapi/detail?id=${id}`);
+export const axiosGetMovieDetail = (movieId: string) => {
+  return axios.get(
+    `${process.env.REACT_APP_SERVER}/movieapi/detail?movieId=${movieId}`
+  );
 };
 
 export const axiosGetMovieComment = (movieId: string) => {

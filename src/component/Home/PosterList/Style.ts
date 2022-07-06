@@ -52,6 +52,12 @@ const PosterListBlock = styled.div`
   }
 `;
 
+const Error = styled.div`
+  font-size: 40px;
+  color: gray;
+  margin: auto;
+`;
+
 const PosterBlock = styled(Link)`
   position: relative;
   top: 1rem;
@@ -185,6 +191,7 @@ const styles = {
   PageButton,
   PosterBlock,
   PosterListBlock,
+  Error,
   Title,
   TitleBlock,
 };

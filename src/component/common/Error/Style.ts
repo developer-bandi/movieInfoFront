@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const MainBlock = styled.div`
   background: ${(props) => props.theme.background};
   weight: 100%;
-  height: 100rem;
+  height: 1000px;
   font-size: 20px;
   display: flex;
   justify-content: center;

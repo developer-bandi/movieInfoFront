@@ -1,4 +1,4 @@
-const setDate = (date: Date) => {
+const setDate = (date: string) => {
   const nowTime = new Date().getTime();
   const writeTime = new Date(date).getTime();
   const timeDiff = (nowTime - writeTime) / 60000;

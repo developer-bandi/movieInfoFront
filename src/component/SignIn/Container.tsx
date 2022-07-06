@@ -10,7 +10,6 @@ const SignInContainer = () => {
   const checkLogin = async () => {
     if (userid !== '' && password !== '') {
       try {
-        console.log(process.env.REACT_APP_SECRET);
         const userInfo = await axiosPostLogin({
           userid,
           password,

@@ -91,26 +91,17 @@ const SearchResultContainer = () => {
     );
     setactivepage(index + start);
   };
-
-  if (searchResult.loading) {
-    return <Loading />;
-  } else if (searchResult.content.searchResult === undefined) {
-    return <NullComponent text={''} />;
-  } else if (searchResult.content.searchResult.results.length === 0) {
-    return <NullComponent text={'검색 결과 없음'} />;
-  } else {
-    return (
-      <SearchResult
-        searchResult={searchResult}
-        prevPage={prevPage}
-        nextPage={nextPage}
-        activepage={activepage}
-        start={start}
-        end={end}
-        goPage={goPage}
-      />
-    );
-  }
+  return (
+    <SearchResult
+      searchResult={searchResult}
+      prevPage={prevPage}
+      nextPage={nextPage}
+      activepage={activepage}
+      start={start}
+      end={end}
+      goPage={goPage}
+    />
+  );
 };
 
 export default SearchResultContainer;

@@ -16,11 +16,13 @@ const MovieContentContainer = () => {
     (state: ReducerType) => state.movieDetail
   );
   const likemovie = useSelector((state: ReducerType) => state.favoriteMovie);
+  const commentList = useSelector((state: ReducerType) => state.moiveComment);
   const user = useSelector((state: ReducerType) => state.user);
-  const dispatch = useDispatch();
+
   const [favorite, setfavorite] = useState(false);
   const [index, setIndex] = useState(-1);
   const [id, setId] = useState<number>();
+  const dispatch = useDispatch();
   const { movieid } = useParams<'movieid'>();
   const notundefinedMovieId = movieid || 'default';
   useEffect(() => {

@@ -8,6 +8,7 @@ const MainBlock = styled.div`
   flex-direction: column;
   align-items: center;
   padding-top: 2rem;
+  m
 `;
 
 const PosterBlock = styled(Link)`

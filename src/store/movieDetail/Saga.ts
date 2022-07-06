@@ -5,13 +5,14 @@ import { getMovieDetailFailure, getMovieDetailSuccess } from './Reducer';
 
 function* axiosGetMovieDetailApi(action: {
   type: string;
-  payload: { id: number };
+  payload: { movieId: string };
 }) {
   try {
     const homePosterData: { data: MovieDetailApiData } = yield call(
       axiosGetMovieDetail,
-      action.payload.id
+      action.payload.movieId
     );
+    console.log(homePosterData.data);
     yield put(getMovieDetailSuccess(homePosterData.data));
   } catch (error) {
     yield put(getMovieDetailFailure());

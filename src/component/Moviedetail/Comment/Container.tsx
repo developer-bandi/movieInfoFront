@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ReducerType } from '../../../store';
@@ -10,11 +10,11 @@ import {
 import MovieComment from './Presentational';
 
 const MovieCommentContainer = () => {
+  const commentList = useSelector((state: ReducerType) => state.moiveComment);
+  const loginedUser = useSelector((state: ReducerType) => state.user);
   const [comment, setComment] = useState('');
   const { movieid } = useParams<'movieid'>() as { movieid: string };
   const dispatch = useDispatch();
-  const commentList = useSelector((state: ReducerType) => state.moiveComment);
-  const loginedUser = useSelector((state: ReducerType) => state.user);
 
   const uploadComment = (e: { type: string; key?: string }) => {
     if (
@@ -36,6 +36,7 @@ const MovieCommentContainer = () => {
   const deleteComment = (id: number, index: number) => {
     dispatch(deleteMovieComment({ id, index }));
   };
+
   return (
     <MovieComment
       uploadComment={uploadComment}

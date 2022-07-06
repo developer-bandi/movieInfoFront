@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import Footer from '../component/common/Footer/Presentational';
 import Nav from '../component/common/Navigation/Presentational';
 import HeaderContainer from '../component/common/Header/Container';
-import PosterListContainer from '../component/Sortedmovie/Container';
+import PosterListContainer from '../component/MovieRank/PosterList/Container';
 import { getMovieRank } from '../store/movieRank/Reducer';
 
 const Sortedmovie = () => {

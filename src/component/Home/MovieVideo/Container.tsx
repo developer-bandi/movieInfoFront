@@ -3,9 +3,7 @@ import { ReducerType } from '../../../store';
 import MovieVideo from './Presentational';
 
 const MoiveVideoContainer = () => {
-  const moviekey = useSelector(
-    (state: ReducerType) => state.homePoster.content.posterList?.key
-  );
+  const moviekey = useSelector((state: ReducerType) => state.homePoster);
   return <MovieVideo moviekey={moviekey} />;
 };
 

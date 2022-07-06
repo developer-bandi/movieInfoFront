@@ -1,4 +1,5 @@
 export interface MovieDetailApiData {
+  [index: string]: string | number | string[];
   title: string;
   releaseDate: number;
   genres: string[];

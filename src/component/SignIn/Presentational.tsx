@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import kakao5 from '../../tempdata/kakaoicon.png';
+import kakao5 from '../../imgs/kakaoicon.png';
 import styles from './Style';
 
 interface SignInProps {

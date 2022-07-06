@@ -1,4 +1,4 @@
-import loading from '../../../tempdata/loading.gif';
+import loading from '../../../imgs/loading.gif';
 import styles from './Style';
 const Loading = () => {
   return (

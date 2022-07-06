@@ -17,9 +17,24 @@ const Loading = styled.div`
   }
 `;
 
+const Error = styled.div`
+  background: black;
+  height: 35rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const ErrorMessage = styled.div`
+  font-size: 40px;
+  color: white;
+`;
+
 const styles = {
   MainBlock,
   Loading,
+  Error,
+  ErrorMessage,
 };
 
 export default styles;

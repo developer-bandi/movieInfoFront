@@ -18,7 +18,8 @@ const Home = () => {
       <HeaderContainer />
       <Nav />
       <FirstmoivevideoContainer />
-      <NowShowingContainer />
+      <NowShowingContainer title={'현재상영중'} />
+      <NowShowingContainer title={'개봉예정작'} />
       <Footer></Footer>
     </>
   );

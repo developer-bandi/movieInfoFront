@@ -2,15 +2,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { MovieCommentApiData } from '../../types/apiType/movieComment';
 
 export interface MovieCommentState {
-  content: MovieCommentApiData[];
+  content?: MovieCommentApiData[];
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 const initialState: MovieCommentState = {
-  content: [],
   loading: true,
-  error: null,
+  error: false,
 };
 
 const MovieCommentSlice = createSlice({
@@ -32,17 +31,21 @@ const MovieCommentSlice = createSlice({
       action: PayloadAction<{ movieId: string; content: string }>
     ) {},
     addMovieCommentSuccess(state, action: PayloadAction<MovieCommentApiData>) {
-      state.content.push(action.payload);
+      if (state.content !== undefined) {
+        state.content.push(action.payload);
+      }
     },
     deleteMovieComment(
       state,
       action: PayloadAction<{ id: number; index: number }>
     ) {},
     deleteMovieCommentSuccess(state, action: PayloadAction<number>) {
-      state.content.splice(action.payload, 1);
+      if (state.content !== undefined) {
+        state.content.splice(action.payload, 1);
+      }
     },
     serverTaskFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
     initializeMovieComment(state) {

@@ -1,36 +1,22 @@
-import nation from '../../../tempdata/nation';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import styles from './Style';
 import { MovieDetailState } from '../../../store/movieDetail/Reducer';
 import { UserState } from '../../../store/user/Reducer';
+import { MovieCommentState } from '../../../store/movieCommet/Reducer';
+
+interface MovieContentProps {
+  movieDetailData: MovieDetailState;
+  favoriteSetting: () => void;
+  favorite: boolean;
+  user: UserState;
+}
 
 const MovieContent = ({
   movieDetailData,
   favoriteSetting,
   favorite,
   user,
-}: {
-  movieDetailData: MovieDetailState;
-  favoriteSetting: () => void;
-  favorite: boolean;
-  user: UserState;
-}) => {
-  const infoTitle: string[] = ['개봉', '장르', '국가', '러닝타임', '평점'];
-  const infoData: (string | number)[] =
-    movieDetailData.content !== undefined
-      ? [
-          movieDetailData.content.releaseDate,
-          movieDetailData.content.genres.join(' '),
-          nation[movieDetailData.content.nation] === undefined
-            ? movieDetailData.content.nation
-            : nation[movieDetailData.content.nation],
-          movieDetailData.content.runtime + '분',
-          movieDetailData.content.rate === 0
-            ? '평가중'
-            : movieDetailData.content.rate,
-        ]
-      : [];
-
+}: MovieContentProps) => {
   return (
     <styles.MainBlock>
       <styles.ImgInfoBlock>
@@ -44,15 +30,17 @@ const MovieContent = ({
               {favorite ? <AiFillStar /> : <AiOutlineStar />}
             </styles.FavoriteButton>
           ) : null}
-
           <styles.MovieTitle>
             {movieDetailData.content?.title}
           </styles.MovieTitle>
-          {infoData.map((data, index) => {
+          {infoTitleEn.map((titleEn, index) => {
             return (
               <styles.InfoBlock key={index}>
                 <styles.InfoTitle>{infoTitle[index]}</styles.InfoTitle>
-                <styles.InfoContent>{data}</styles.InfoContent>
+                <styles.InfoContent>
+                  {movieDetailData.content !== undefined &&
+                    movieDetailData.content[titleEn]}
+                </styles.InfoContent>
               </styles.InfoBlock>
             );
           })}
@@ -65,5 +53,8 @@ const MovieContent = ({
     </styles.MainBlock>
   );
 };
+
+const infoTitle = ['개봉', '장르', '국가', '러닝타임', '평점'];
+const infoTitleEn = ['releaseDate', 'genres', 'nation', 'runtime', 'rate'];
 
 export default MovieContent;

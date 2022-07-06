@@ -62,6 +62,7 @@ function* axiosDeleteMovieCommentApi(action: {
     yield call(axiosDeleteMovieComment, action.payload.id);
     yield put(deleteMovieCommentSuccess(action.payload.index));
   } catch (error) {
+    console.error(error);
     yield put(serverTaskFailure());
   }
 }

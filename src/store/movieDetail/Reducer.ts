@@ -4,12 +4,12 @@ import { MovieDetailApiData } from '../../types/apiType/movieDetail';
 export interface MovieDetailState {
   content?: MovieDetailApiData;
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 const initialState: MovieDetailState = {
   loading: true,
-  error: null,
+  error: false,
 };
 
 const HomePosterSlice = createSlice({
@@ -17,7 +17,7 @@ const HomePosterSlice = createSlice({
   initialState,
 
   reducers: {
-    getMovieDetail(state, action: PayloadAction<{ id: number }>) {},
+    getMovieDetail(state, action: PayloadAction<{ movieId: string }>) {},
 
     getMovieDetailSuccess(state, action: PayloadAction<MovieDetailApiData>) {
       state.content = action.payload;
@@ -25,7 +25,7 @@ const HomePosterSlice = createSlice({
     },
 
     getMovieDetailFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
     initializeMovieDetail(state) {
