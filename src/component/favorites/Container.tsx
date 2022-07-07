@@ -11,7 +11,7 @@ const FavoriteMovieContainer = () => {
   const [deleteBox, setDeleteBox] = useState(false); //드래그 시작시 , 취소시 드롭공간 on off 하기위한 값
   const [boxOver, setBoxOver] = useState('false'); //드래그 요소 드랍공간에 올라올시 투명도 관리를 위한 값
   const [end, setEnd] = useState(10);
-  const [ref, inView] = useInView(); //무한스크롤 훅
+  const [viewRef, inView] = useInView(); //무한스크롤 훅
 
   useEffect(() => {
     if (likeMovies.content !== undefined) {
@@ -87,7 +87,7 @@ const FavoriteMovieContainer = () => {
       deleteBox={deleteBox}
       boxOver={boxOver}
       end={end}
-      ref={ref}
+      viewRef={viewRef}
     />
   );
 };

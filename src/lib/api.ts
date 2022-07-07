@@ -62,7 +62,7 @@ export const axiosPostFavoriteMovie = (movieInfo: {
   movieName: string;
   posterPath: string;
 }) => {
-  return axios.post(`${process.env.REACT_APP_SERVER}/like/add`, movieInfo);
+  return axios.post(`${process.env.REACT_APP_SERVER}/like`, movieInfo);
 };
 
 export const axiosDeleteFavoriteMovie = (id: number) => {

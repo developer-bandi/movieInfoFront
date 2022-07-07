@@ -12,7 +12,7 @@ function* axiosGetMovieSearchApi(action: {
       axiosGetMovieSearch,
       action.payload
     );
-    console.log(searchResultData);
+
     yield put(searchMovieSuccess(searchResultData.data));
   } catch (error) {
     yield put(searchMovieFailure());

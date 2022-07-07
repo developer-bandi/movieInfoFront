@@ -26,11 +26,12 @@ const NowShowingContainer = ({ title }: { title: string }) => {
   //이미지를 미리 로드하여 포스터 전환시 포스터를 빠르게 보여줍니다.
 
   const changePage = (position: string) => {
-    setNowPage(position === 'prev' ? nowPage - 1 : nowPage + 1);
+    const newPosition = position === 'prev' ? nowPage - 1 : nowPage + 1;
+    setNowPage(newPosition);
     dispatch(
       movePage({
         kind: title === '현재상영중' ? 'nowShowingInfo' : 'nowCommingInfo',
-        page: nowPage + 1,
+        page: newPosition,
       })
     );
   };

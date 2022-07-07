@@ -22,12 +22,16 @@ const MovieContent = ({
       <styles.ImgInfoBlock>
         <styles.Img
           src={`https://image.tmdb.org/t/p/w500${movieDetailData.content?.posterPath}`}
-          alt=""
+          alt="poster"
         />
         <styles.InfoListBlock>
           {user.content ? (
             <styles.FavoriteButton onClick={favoriteSetting}>
-              {favorite ? <AiFillStar /> : <AiOutlineStar />}
+              {favorite ? (
+                <AiFillStar size={40} />
+              ) : (
+                <AiOutlineStar size={40} />
+              )}
             </styles.FavoriteButton>
           ) : null}
           <styles.MovieTitle>

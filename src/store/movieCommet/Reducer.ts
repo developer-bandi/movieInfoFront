@@ -25,6 +25,10 @@ const MovieCommentSlice = createSlice({
       state.content = action.payload;
       state.loading = false;
     },
+    getMovieCommentFailure(state) {
+      state.error = true;
+      state.loading = false;
+    },
 
     addMovieComment(
       state,
@@ -35,6 +39,11 @@ const MovieCommentSlice = createSlice({
         state.content.push(action.payload);
       }
     },
+    addMovieCommentFailure(state) {
+      state.error = true;
+      state.loading = false;
+      alert('오류가 발생하여 댓글을 등록하지 못했습니다');
+    },
     deleteMovieComment(
       state,
       action: PayloadAction<{ id: number; index: number }>
@@ -44,12 +53,15 @@ const MovieCommentSlice = createSlice({
         state.content.splice(action.payload, 1);
       }
     },
-    serverTaskFailure(state) {
+    deleteMovieCommentFailure(state) {
       state.error = true;
       state.loading = false;
+      alert('오류가 발생하여 댓글을 삭제하지 못했습니다');
     },
     initializeMovieComment(state) {
-      state = initialState;
+      delete state.content;
+      state.error = false;
+      state.loading = true;
     },
   },
 });
@@ -57,11 +69,13 @@ const MovieCommentSlice = createSlice({
 export const {
   getMovieComment,
   getMovieCommentSuccess,
+  getMovieCommentFailure,
   addMovieComment,
   addMovieCommentSuccess,
+  addMovieCommentFailure,
   deleteMovieComment,
   deleteMovieCommentSuccess,
-  serverTaskFailure,
+  deleteMovieCommentFailure,
   initializeMovieComment,
 } = MovieCommentSlice.actions;
 

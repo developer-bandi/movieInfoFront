@@ -30,6 +30,7 @@ const MovieCommentSlice = createSlice({
     getFavoriteMovieFailure(state) {
       state.error = '에러 발생';
       state.loading = false;
+      alert('에러가 발생하여 즐겨찾기를 하지 못했습니다');
     },
 
     addFavoriteMovie(

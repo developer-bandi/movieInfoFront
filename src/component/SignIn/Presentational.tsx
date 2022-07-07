@@ -59,8 +59,6 @@ const SignIn = ({ setId, setPassword, checkLogin }: SignInProps) => {
           <styles.LocalLoginTool>
             <Link to={'/signup'}>회원가입</Link>
           </styles.LocalLoginTool>
-          <styles.LocalLoginTool>아이디 찾기</styles.LocalLoginTool>
-          <styles.LocalLoginTool>비밀번호 찾기</styles.LocalLoginTool>
         </styles.LocalLoginToolBlock>
       </section>
     </styles.MainBlock>

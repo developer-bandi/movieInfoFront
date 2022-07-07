@@ -12,7 +12,6 @@ function* axiosGetMovieDetailApi(action: {
       axiosGetMovieDetail,
       action.payload.movieId
     );
-    console.log(homePosterData.data);
     yield put(getMovieDetailSuccess(homePosterData.data));
   } catch (error) {
     yield put(getMovieDetailFailure());

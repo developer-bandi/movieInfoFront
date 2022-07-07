@@ -7,8 +7,6 @@ import {
   initializeMovieSearch,
   searchMovie,
 } from '../../../store/movieSearch/Reducer';
-import NullComponent from '../../common/Error/Presentational';
-import Loading from '../../common/Loading/Presentational';
 import SearchResult from './Presentational';
 
 const SearchResultContainer = () => {

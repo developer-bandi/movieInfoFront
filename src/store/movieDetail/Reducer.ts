@@ -29,7 +29,9 @@ const HomePosterSlice = createSlice({
       state.loading = false;
     },
     initializeMovieDetail(state) {
-      state = initialState;
+      delete state.content;
+      state.error = false;
+      state.loading = true;
     },
   },
 });

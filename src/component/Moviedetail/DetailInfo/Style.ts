@@ -36,8 +36,8 @@ const InfoListBlock = styled.div`
 `;
 
 const FavoriteButton = styled.div`
-  width: 3rem;
-  height: 3rem;
+  width: 30px;
+  height: 30px;
   float: right;
 `;
 

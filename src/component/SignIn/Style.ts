@@ -136,17 +136,13 @@ const LoginButton = styled.button`
   margin-top: 2rem;
 `;
 
-const LocalLoginToolBlock = styled.ul`
+const LocalLoginToolBlock = styled.div`
   display: flex;
   justify-content: center;
 `;
 
-const LocalLoginTool = styled.li`
-  padding: 0 1rem 0 1rem;
+const LocalLoginTool = styled.div`
   cursor: pointer;
-  & + & {
-    border-left: 1px solid black;
-  }
 `;
 
 const styles = {

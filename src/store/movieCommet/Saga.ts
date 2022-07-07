@@ -6,10 +6,12 @@ import {
 } from '../../lib/api';
 import { MovieCommentApiData } from '../../types/apiType/movieComment';
 import {
+  addMovieCommentFailure,
   addMovieCommentSuccess,
+  deleteMovieCommentFailure,
   deleteMovieCommentSuccess,
+  getMovieCommentFailure,
   getMovieCommentSuccess,
-  serverTaskFailure,
 } from './Reducer';
 
 function* axiosGetMovieCommentApi(action: {
@@ -23,7 +25,7 @@ function* axiosGetMovieCommentApi(action: {
     );
     yield put(getMovieCommentSuccess(movieCommentData.data));
   } catch (error) {
-    yield put(serverTaskFailure());
+    yield put(getMovieCommentFailure());
   }
 }
 
@@ -44,7 +46,7 @@ function* axiosPostMovieCommentApi(action: {
     );
     yield put(addMovieCommentSuccess(movieCommentData.data));
   } catch (error) {
-    yield put(serverTaskFailure());
+    yield put(addMovieCommentFailure());
   }
 }
 
@@ -63,7 +65,7 @@ function* axiosDeleteMovieCommentApi(action: {
     yield put(deleteMovieCommentSuccess(action.payload.index));
   } catch (error) {
     console.error(error);
-    yield put(serverTaskFailure());
+    yield put(deleteMovieCommentFailure());
   }
 }
 

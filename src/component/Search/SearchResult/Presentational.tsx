@@ -5,7 +5,7 @@ import { IoIosArrowForward } from 'react-icons/io';
 import styles from './Style';
 import { MovieSearchState } from '../../../store/movieSearch/Reducer';
 import Loading from '../../common/Loading/Presentational';
-import NullComponent from '../../common/Error/Presentational';
+import Except from '../../common/Except/Presentational';
 
 interface SearchResultProps {
   searchResult: MovieSearchState;
@@ -29,9 +29,9 @@ const SearchResult = ({
   if (searchResult.loading) {
     return <Loading></Loading>;
   } else if (searchResult.error) {
-    return <NullComponent text="에러가 발생하였습니다" />;
+    return <Except text="에러가 발생하였습니다" />;
   } else if (searchResult.content.searchResult === undefined) {
-    return <NullComponent text="" />;
+    return <Except text="" />;
   } else {
     return (
       <styles.MainBlock>
@@ -47,7 +47,7 @@ const SearchResult = ({
                     ? nullmovie
                     : `https://image.tmdb.org/t/p/w500${poserInfo.posterPath}`
                 }
-                alt="x"
+                alt={poserInfo.posterPath === null ? 'notPoster' : 'poster'}
               />
               <styles.MovieInfoBlock>
                 <styles.Title> {poserInfo.title}</styles.Title>

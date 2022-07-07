@@ -1,10 +1,10 @@
 import styles from './Style';
 
-interface NullComponentProps {
+interface ExceptProps {
   text: string;
 }
 
-const NullComponent = ({ text }: NullComponentProps) => {
+const Except = ({ text }: ExceptProps) => {
   return (
     <styles.MainBlock>
       <styles.Content>{text}</styles.Content>
@@ -12,4 +12,4 @@ const NullComponent = ({ text }: NullComponentProps) => {
   );
 };
 
-export default NullComponent;
+export default Except;

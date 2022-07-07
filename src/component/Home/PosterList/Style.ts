@@ -90,11 +90,12 @@ const PosterBlock = styled(Link)`
 `;
 
 const NullPosterBlock = styled.div`
-  position: relative;
-  top: 1rem;
   border-radius: 10px;
   color: inherit;
+  background-color: #eaeaea;
   text-decoration: none;
+  width: 15rem;
+  height: 20rem;
   & + & {
     margin-left: 2rem;
   }

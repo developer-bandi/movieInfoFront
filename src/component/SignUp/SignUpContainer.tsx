@@ -17,7 +17,6 @@ const SignUpContainer = () => {
       const agreeSubmit = window.confirm(
         '가입시 닉네임은 변경할수 없습니다 가입하시겠습니까?'
       );
-      console.log(process.env.REACT_APP_SECRET);
 
       if (agreeSubmit) {
         if (userid === '' || userid.length > 10) {
@@ -37,7 +36,6 @@ const SignUpContainer = () => {
             ).toString(),
             nick,
           };
-          console.log(userData);
           await axios.post(
             `${process.env.REACT_APP_SERVER}/auth/join`,
             userData

@@ -43,12 +43,6 @@ const MovieContentContainer = () => {
     }
   }, [likemovie]);
 
-  useEffect(() => {
-    return () => {
-      dispatch(initializeMovieDetail());
-    };
-  }, []);
-
   const favoriteSetting = () => {
     if (favorite && id !== undefined) {
       dispatch(deleteFavoriteMovie({ id, index }));

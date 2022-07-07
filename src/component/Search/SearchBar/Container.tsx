@@ -13,13 +13,11 @@ const SearchBarContainer = () => {
     type: string;
     target: { innerText: string; tagName: string };
   }) => {
-    console.log(1);
     if (
       (e.type === 'click' && e.key === undefined) ||
       (e.type === 'keypress' && e.key === 'Enter')
     ) {
       //클릭 엔터 모두 영화를 검색할수 있게 합니다.
-      console.log(2);
       let tempValue = value;
       if (e.target.tagName === 'DIV') {
         //이벤트 발생이 div태그 즉 페이지 버튼에 의한 것이면 인덱스를 따로 가져옵니다.

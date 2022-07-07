@@ -133,6 +133,51 @@ const MoiveName = styled.div`
   }
 `;
 
+const LoadingPoster = styled.div<{ active: number }>`
+  width: 15rem;
+  height: 25rem;
+  margin-left: 1rem;
+  position: relative;
+  margin-bottom: 2rem;
+  position: relative;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+  margin-left: 2rem;
+  background-color: #eaeaea;
+  @media (hover: hover) {
+    &:hover {
+      & > img {
+        filter: brightness(20%);
+      }
+      & > .movieinfo {
+        visibility: visible;
+        color: white;
+      }
+      & > .num {
+        visibility: hidden;
+      }
+    }
+  }
+
+  ${(props) =>
+    props.active % 5 === 0 &&
+    css`
+      margin-left: 0rem;
+    `}
+
+  @media screen and (max-width: 500px) {
+    width: 5rem;
+    height: 8rem;
+    margin-left: 0.5rem;
+    ${(props) =>
+      props.active % 4 === 0 &&
+      css`
+        margin-left: 0rem;
+      `}
+  }
+`;
+
 const styles = {
   MainBlock,
   PosterListBlock,
@@ -142,6 +187,7 @@ const styles = {
   MovieInfo,
   MovieRating,
   MoiveName,
+  LoadingPoster,
 };
 
 export default styles;

@@ -4,12 +4,12 @@ import { UserApiData } from '../../types/apiType/user';
 export interface UserState {
   content?: UserApiData;
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 const initialState: UserState = {
   loading: true,
-  error: null,
+  error: false,
 };
 
 const UserSlice = createSlice({
@@ -29,17 +29,19 @@ const UserSlice = createSlice({
       }
     },
     checkLoginuserFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
     doLogout(state) {
       state.loading = true;
     },
     doLogoutSuccess(state) {
-      state = { loading: true, error: null };
+      delete state.content;
+      state.loading = false;
+      state.error = false;
     },
     doLogoutFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
   },

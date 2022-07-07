@@ -1,7 +1,7 @@
 import styles from './Style';
 import nullMovie from '../../../imgs/nullmovie.webp';
 import OrderButtonContainer from '../OrderButton/Container';
-import NullComponent from '../../common/Error/Presentational';
+import Except from '../../common/Except/Presentational';
 import { MovieRankState } from '../../../store/movieRank/Reducer';
 
 interface PosterListProps {
@@ -15,15 +15,7 @@ const PosterList = ({ movieRankList }: PosterListProps) => {
         <OrderButtonContainer />
         <styles.PosterListBlock>
           {new Array(20).fill(0).map((zero, index) => {
-            return (
-              <styles.PosterBlock
-                key={index}
-                to={`/moviedetail`}
-                active={index}
-              >
-                <styles.MovieImg src={nullMovie} alt="loading" />
-              </styles.PosterBlock>
-            );
+            return <styles.LoadingPoster key={index} active={index} />;
           })}
         </styles.PosterListBlock>
       </styles.MainBlock>
@@ -31,7 +23,7 @@ const PosterList = ({ movieRankList }: PosterListProps) => {
   } else if (movieRankList.error) {
     return (
       <styles.MainBlock>
-        <NullComponent text="에러가 발생하였습니다" />
+        <Except text="에러가 발생하였습니다" />
       </styles.MainBlock>
     );
   } else {
@@ -49,8 +41,16 @@ const PosterList = ({ movieRankList }: PosterListProps) => {
                     active={index}
                   >
                     <styles.MovieImg
-                      src={`https://image.tmdb.org/t/p/w500${movieInfo.posterPath}`}
-                      alt="x"
+                      src={
+                        movieInfo.posterPath === null
+                          ? nullMovie
+                          : `https://image.tmdb.org/t/p/w500${movieInfo.posterPath}`
+                      }
+                      alt={
+                        movieInfo.posterPath === null
+                          ? 'loading'
+                          : 'moviePoster'
+                      }
                     />
                     <styles.MovieNum className="num">
                       {index + 1}

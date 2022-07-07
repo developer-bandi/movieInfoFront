@@ -1,5 +1,5 @@
 import { FavoriteMovieState } from '../../store/favoriteMovie/Reducer';
-import NullComponent from '../common/Error/Presentational';
+import Except from '../common/Except/Presentational';
 import styles from './Style';
 
 interface FavoriteMovieProps {
@@ -12,7 +12,7 @@ interface FavoriteMovieProps {
   deleteBox: boolean;
   boxOver: string;
   end: number;
-  ref: (node?: Element | null | undefined) => void;
+  viewRef: (node?: Element | null | undefined) => void;
 }
 
 const FavoriteMovie = ({
@@ -25,14 +25,14 @@ const FavoriteMovie = ({
   deleteBox,
   boxOver,
   end,
-  ref,
+  viewRef,
 }: FavoriteMovieProps) => {
   if (likeMovies.content === undefined) {
-    return <NullComponent text={'로그인을 진행해주세요'} />;
+    return <Except text={'로그인을 진행해주세요'} />;
   } else if (likeMovies.content.length === 0) {
-    return <NullComponent text={'저장한 영화가 없습니다'} />;
+    return <Except text={'저장된 영화가 없습니다'} />;
   } else if (likeMovies.error) {
-    return <NullComponent text={'오류가 발생하였습니다'} />;
+    return <Except text={'오류가 발생하였습니다'} />;
   } else {
     return (
       <styles.MainBlock>
@@ -40,7 +40,7 @@ const FavoriteMovie = ({
           {likeMovies.content.slice(0, end).map((data, index) => {
             return (
               <styles.PosterBlock
-                ref={(index + 1) % 10 === 0 ? ref : null}
+                ref={(index + 1) % 10 === 0 ? viewRef : null}
                 key={data.id}
                 to={`/moviedetail/${data.movieId}`}
                 name={index}
@@ -50,7 +50,7 @@ const FavoriteMovie = ({
               >
                 <styles.MovieImg
                   src={`https://image.tmdb.org/t/p/w500${data.posterPath}`}
-                  alt=""
+                  alt="poster"
                 ></styles.MovieImg>
                 <styles.Moviename>{data.movieName}</styles.Moviename>
               </styles.PosterBlock>

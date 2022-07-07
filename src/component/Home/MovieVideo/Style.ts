@@ -25,6 +25,7 @@ const Error = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const ErrorMessage = styled.div`
   font-size: 40px;
   color: white;

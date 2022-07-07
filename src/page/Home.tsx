@@ -3,13 +3,15 @@ import Nav from '../component/common/Navigation/Presentational';
 import NowShowingContainer from '../component/Home/PosterList/Container';
 import { useDispatch } from 'react-redux';
 import FirstmoivevideoContainer from '../component/Home/MovieVideo/Container';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import HeaderContainer from '../component/common/Header/Container';
 import { getHomePoster } from '../store/homePoster/Reducer';
+import { checkLoginuser } from '../store/user/Reducer';
 
 const Home = () => {
   const dispatch = useDispatch();
-  useEffect(() => {
+  useLayoutEffect(() => {
+    dispatch(checkLoginuser());
     dispatch(getHomePoster());
   });
 
