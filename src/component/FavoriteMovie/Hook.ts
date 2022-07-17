@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { css } from 'styled-components';
 import { BsXLg } from 'react-icons/bs';
 import { AiOutlineSearch } from 'react-icons/ai';
 
