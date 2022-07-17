@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navigation/> Presentational Navigation 스냅샷 비교 1`] = `
+<div>
+  <nav
+    class="sc-bdvvtL kPLDXe"
+  >
+    <ul
+      class="sc-gsDKAQ cpbHdK"
+    >
+      <li
+        class="sc-dkPtRN iBhiyQ"
+      >
+        <a
+          active="true"
+          class="sc-hKwDye iDZeQi"
+          href="/"
+        >
+          홈
+        </a>
+      </li>
+      <li
+        class="sc-dkPtRN iBhiyQ"
+      >
+        <a
+          active="false"
+          class="sc-hKwDye eYjUNd"
+          href="/sortedmovie"
+        >
+          랭킹
+        </a>
+      </li>
+      <li
+        class="sc-dkPtRN iBhiyQ"
+      >
+        <a
+          active="false"
+          class="sc-hKwDye eYjUNd"
+          href="/search"
+        >
+          영화검색
+        </a>
+      </li>
+      <li
+        class="sc-dkPtRN iBhiyQ"
+      >
+        <a
+          active="false"
+          class="sc-hKwDye eYjUNd"
+          href="/favorites"
+        >
+          나만의 영화
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;
+
+exports[`<Navigation/> Presentational 전체 화면 검증 1`] = `
+<div>
+  <nav
+    class="sc-bdvvtL kPLDXe"
+  >
+    <ul
+      class="sc-gsDKAQ cpbHdK"
+    >
+      <li
+        class="sc-dkPtRN iBhiyQ"
+      >
+        <a
+          active="true"
+          class="sc-hKwDye iDZeQi"
+          href="/"
+        >
+          홈
+        </a>
+      </li>
+      <li
+        class="sc-dkPtRN iBhiyQ"
+      >
+        <a
+          active="false"
+          class="sc-hKwDye eYjUNd"
+          href="/sortedmovie"
+        >
+          랭킹
+        </a>
+      </li>
+      <li
+        class="sc-dkPtRN iBhiyQ"
+      >
+        <a
+          active="false"
+          class="sc-hKwDye eYjUNd"
+          href="/search"
+        >
+          영화검색
+        </a>
+      </li>
+      <li
+        class="sc-dkPtRN iBhiyQ"
+      >
+        <a
+          active="false"
+          class="sc-hKwDye eYjUNd"
+          href="/favorites"
+        >
+          나만의 영화
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+`;

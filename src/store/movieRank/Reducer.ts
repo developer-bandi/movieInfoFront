@@ -5,16 +5,16 @@ import { MovieRankApiData } from '../../types/apiType/movieRank';
 export interface MovieRankState {
   content: { type: string; movieInfo?: MovieRankApiData };
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 const initialState: MovieRankState = {
   content: { type: 'popular' },
   loading: true,
-  error: null,
+  error: false,
 };
 
-const HomePosterSlice = createSlice({
+const MovieRankSlice = createSlice({
   name: 'movieRank',
   initialState,
 
@@ -30,7 +30,7 @@ const HomePosterSlice = createSlice({
     },
 
     getMovieRankFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
     setRankType(state, action: PayloadAction<string>) {
@@ -44,6 +44,6 @@ export const {
   getMovieRankSuccess,
   getMovieRankFailure,
   setRankType,
-} = HomePosterSlice.actions;
+} = MovieRankSlice.actions;
 
-export default HomePosterSlice.reducer;
+export default MovieRankSlice.reducer;

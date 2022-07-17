@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OrderButton <Presentational> 전체 컴포넌트 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL doTKpa"
+  >
+    <div
+      class="sc-gsDKAQ cXqUZX"
+    >
+      <div
+        class="sc-dkPtRN bJNWxh"
+        data-testid="popularOrderButton"
+      >
+        인기순
+      </div>
+      <div
+        class="sc-dkPtRN eDQzrg"
+        data-testid="topRatedOrderButton"
+      >
+        별점순
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`OrderButton Presentational 전체 화면 검증 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL doTKpa"
+  >
+    <div
+      class="sc-gsDKAQ cXqUZX"
+    >
+      <div
+        class="sc-dkPtRN bJNWxh"
+        data-testid="popularOrderButton"
+      >
+        인기순
+      </div>
+      <div
+        class="sc-dkPtRN eDQzrg"
+        data-testid="topRatedOrderButton"
+      >
+        별점순
+      </div>
+    </div>
+  </div>
+</div>
+`;

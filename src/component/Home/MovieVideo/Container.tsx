@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { ReducerType } from '../../../store';
-import MovieVideo from './Presentational';
+import MovieVideoPresentational from './Presentational';
 
 const MoiveVideoContainer = () => {
   const moviekey = useSelector((state: ReducerType) => state.homePoster);
-  return <MovieVideo moviekey={moviekey} />;
+  return <MovieVideoPresentational moviekey={moviekey} />;
 };
 
 export default MoiveVideoContainer;

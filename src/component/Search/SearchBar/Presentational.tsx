@@ -1,58 +1,65 @@
-import { useState } from 'react';
 import styles from './Style';
 
 interface SearchBarProps {
   latest: string[];
   searchMovies: any;
-  deleteComment: Function;
+  deleteComment: (index: number) => void;
   settingvalue: React.ChangeEventHandler<HTMLInputElement>;
   value: string;
+  focus: boolean;
+  setFocus: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SearchBar = ({
+const SearchBarPresentational = ({
   latest,
   searchMovies,
   deleteComment,
   settingvalue,
   value,
+  focus,
+  setFocus,
 }: SearchBarProps) => {
-  const [focus, setFocus] = useState(false);
-  const showLatest = () => {
-    setFocus(!focus);
-  };
-
   return (
     <styles.MainBlock>
       <styles.InputBlock>
         <styles.SearchInput
           type="text"
-          onKeyPress={searchMovies}
-          onChange={settingvalue}
-          onClick={showLatest}
+          onKeyPress={(e) => searchMovies(e)}
+          onChange={(e) => settingvalue(e)}
+          onClick={() => setFocus(!focus)}
           value={value}
+          data-testid={'searchInput'}
         ></styles.SearchInput>
-        <styles.SearchButton onClick={searchMovies}></styles.SearchButton>
+        <styles.SearchButton
+          data-testid={'searchButton'}
+          onClick={searchMovies}
+        ></styles.SearchButton>
       </styles.InputBlock>
-      <styles.LatestSearchListBlock active={focus}>
-        {latest[0] === 'default' ? (
-          <styles.LatestSearchNull>
-            {'최근 검색 내용이 없습니다'}
-          </styles.LatestSearchNull>
-        ) : (
-          latest.map((data, index) => (
-            <styles.LatestSearch key={index}>
-              <div onClick={searchMovies}>{data}</div>
-              <styles.DeleteButton
-                onClick={(e) => {
-                  deleteComment(index);
-                }}
-              />
-            </styles.LatestSearch>
-          ))
-        )}
+      <styles.LatestSearchListBlock>
+        {focus ? (
+          latest.length === 0 ? (
+            <styles.LatestSearchNull>
+              {'최근 검색 내용이 없습니다'}
+            </styles.LatestSearchNull>
+          ) : (
+            latest.map((data, index) => (
+              <styles.LatestSearch key={index}>
+                <div data-testid={'data'} onClick={searchMovies}>
+                  {data}
+                </div>
+                <styles.DeleteButton
+                  onClick={(e) => {
+                    deleteComment(index);
+                  }}
+                  data-testid={'deleteButton'}
+                />
+              </styles.LatestSearch>
+            ))
+          )
+        ) : null}
       </styles.LatestSearchListBlock>
     </styles.MainBlock>
   );
 };
 
-export default SearchBar;
+export default SearchBarPresentational;

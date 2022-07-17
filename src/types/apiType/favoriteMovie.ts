@@ -1,6 +1,6 @@
 export interface FavoriteMovieInfo {
   id: number;
-  movieId: number;
+  movieId: string;
   movieName: string;
   posterPath: string;
 }

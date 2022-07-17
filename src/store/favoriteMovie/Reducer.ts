@@ -7,15 +7,15 @@ import {
 export interface FavoriteMovieState {
   content?: FavoriteMovieApiData;
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 const initialState: FavoriteMovieState = {
   loading: true,
-  error: null,
+  error: false,
 };
 
-const MovieCommentSlice = createSlice({
+const FavoriteMovie = createSlice({
   name: 'favoriteMovie',
   initialState,
   reducers: {
@@ -28,7 +28,7 @@ const MovieCommentSlice = createSlice({
       state.loading = false;
     },
     getFavoriteMovieFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
       alert('에러가 발생하여 즐겨찾기를 하지 못했습니다');
     },
@@ -45,7 +45,7 @@ const MovieCommentSlice = createSlice({
       if (state.content !== undefined) state.content.push(action.payload);
     },
     addFavoriteMovieFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
     deleteFavoriteMovie(
@@ -56,7 +56,7 @@ const MovieCommentSlice = createSlice({
       if (state.content !== undefined) state.content.splice(action.payload, 1);
     },
     deleteFavoriteMovieFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
     initializeFavoriteMovie(state) {
@@ -76,6 +76,6 @@ export const {
   deleteFavoriteMovieSuccess,
   deleteFavoriteMovieFailure,
   initializeFavoriteMovie,
-} = MovieCommentSlice.actions;
+} = FavoriteMovie.actions;
 
-export default MovieCommentSlice.reducer;
+export default FavoriteMovie.reducer;

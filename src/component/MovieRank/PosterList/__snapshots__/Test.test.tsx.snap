@@ -1,0 +1,485 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PosterList <Presentational> popular 출력 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckomfZ"
+  >
+    <div
+      class="sc-pVTFL iznEeA"
+    >
+      <div
+        class="sc-jrQzAO dnGTOR"
+      >
+        <div
+          class="sc-kDTinF eHahVc"
+          data-testid="popularOrderButton"
+        >
+          인기순
+        </div>
+        <div
+          class="sc-kDTinF cSxYEp"
+          data-testid="topRatedOrderButton"
+        >
+          별점순
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-gsDKAQ ddJUoe"
+    >
+      <a
+        active="0"
+        class="sc-dkPtRN EVaWh"
+        href="/moviedetail/2"
+      >
+        <img
+          alt="moviePoster"
+          class="sc-hKwDye ibWAQv"
+          src="https://image.tmdb.org/t/p/w500populartestPoserPath"
+        />
+        <div
+          class="sc-eCImPb izzlkg num"
+        >
+          1
+        </div>
+        <div
+          class="sc-jRQBWg knOWJz movieinfo"
+        >
+          populartestOverview
+        </div>
+        <div
+          class="sc-gKclnd iMzDwk rating"
+        >
+          평점 
+          8
+        </div>
+        <div
+          class="sc-iCfMLu yxOVc moviename"
+        >
+          popular
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PosterList <Presentational> topRated 출력 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckomfZ"
+  >
+    <div
+      class="sc-pVTFL iznEeA"
+    >
+      <div
+        class="sc-jrQzAO dnGTOR"
+      >
+        <div
+          class="sc-kDTinF eHahVc"
+          data-testid="popularOrderButton"
+        >
+          인기순
+        </div>
+        <div
+          class="sc-kDTinF cSxYEp"
+          data-testid="topRatedOrderButton"
+        >
+          별점순
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-gsDKAQ ddJUoe"
+    >
+      <a
+        active="0"
+        class="sc-dkPtRN EVaWh"
+        href="/moviedetail/1"
+      >
+        <img
+          alt="moviePoster"
+          class="sc-hKwDye ibWAQv"
+          src="https://image.tmdb.org/t/p/w500topRatedMovieInfotestPoserPath"
+        />
+        <div
+          class="sc-eCImPb izzlkg num"
+        >
+          1
+        </div>
+        <div
+          class="sc-jRQBWg knOWJz movieinfo"
+        >
+          topRatedMovieInfotestOverview
+        </div>
+        <div
+          class="sc-gKclnd iMzDwk rating"
+        >
+          평점 
+          9
+        </div>
+        <div
+          class="sc-iCfMLu yxOVc moviename"
+        >
+          topRated
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PosterList <Presentational> 로딩중 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckomfZ"
+  >
+    <div
+      class="sc-pVTFL iznEeA"
+    >
+      <div
+        class="sc-jrQzAO dnGTOR"
+      >
+        <div
+          class="sc-kDTinF eHahVc"
+          data-testid="popularOrderButton"
+        >
+          인기순
+        </div>
+        <div
+          class="sc-kDTinF cSxYEp"
+          data-testid="topRatedOrderButton"
+        >
+          별점순
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-gsDKAQ ddJUoe"
+    >
+      <div
+        class="sc-furwcr fKsSdm"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr bgqqZp"
+      />
+      <div
+        class="sc-furwcr gPYeB"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr bgqqZp"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr gPYeB"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr bgqqZp"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr gPYeB"
+      />
+      <div
+        class="sc-furwcr bgqqZp"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PosterList <Presentational> 에러 발생 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckomfZ"
+  >
+    <div
+      class="sc-iqseJM exHIdu"
+    >
+      <div
+        class="sc-crHmcD jRVExl"
+        data-testid="except"
+      >
+        에러가 발생하였습니다
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PosterList Presentational popular 출력 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckomfZ"
+  >
+    <div
+      class="sc-pVTFL iznEeA"
+    >
+      <div
+        class="sc-jrQzAO dnGTOR"
+      >
+        <div
+          class="sc-kDTinF eHahVc"
+          data-testid="popularOrderButton"
+        >
+          인기순
+        </div>
+        <div
+          class="sc-kDTinF cSxYEp"
+          data-testid="topRatedOrderButton"
+        >
+          별점순
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-gsDKAQ ddJUoe"
+    >
+      <a
+        active="0"
+        class="sc-dkPtRN EVaWh"
+        href="/moviedetail/2"
+      >
+        <img
+          alt="moviePoster"
+          class="sc-hKwDye ibWAQv"
+          src="https://image.tmdb.org/t/p/w500populartestPoserPath"
+        />
+        <div
+          class="sc-eCImPb izzlkg num"
+        >
+          1
+        </div>
+        <div
+          class="sc-jRQBWg knOWJz movieinfo"
+        >
+          populartestOverview
+        </div>
+        <div
+          class="sc-gKclnd iMzDwk rating"
+        >
+          평점 
+          8
+        </div>
+        <div
+          class="sc-iCfMLu yxOVc moviename"
+        >
+          popular
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PosterList Presentational topRated 출력 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckomfZ"
+  >
+    <div
+      class="sc-pVTFL iznEeA"
+    >
+      <div
+        class="sc-jrQzAO dnGTOR"
+      >
+        <div
+          class="sc-kDTinF eHahVc"
+          data-testid="popularOrderButton"
+        >
+          인기순
+        </div>
+        <div
+          class="sc-kDTinF cSxYEp"
+          data-testid="topRatedOrderButton"
+        >
+          별점순
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-gsDKAQ ddJUoe"
+    >
+      <a
+        active="0"
+        class="sc-dkPtRN EVaWh"
+        href="/moviedetail/1"
+      >
+        <img
+          alt="moviePoster"
+          class="sc-hKwDye ibWAQv"
+          src="https://image.tmdb.org/t/p/w500topRatedMovieInfotestPoserPath"
+        />
+        <div
+          class="sc-eCImPb izzlkg num"
+        >
+          1
+        </div>
+        <div
+          class="sc-jRQBWg knOWJz movieinfo"
+        >
+          topRatedMovieInfotestOverview
+        </div>
+        <div
+          class="sc-gKclnd iMzDwk rating"
+        >
+          평점 
+          9
+        </div>
+        <div
+          class="sc-iCfMLu yxOVc moviename"
+        >
+          topRated
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PosterList Presentational 로딩중 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckomfZ"
+  >
+    <div
+      class="sc-pVTFL iznEeA"
+    >
+      <div
+        class="sc-jrQzAO dnGTOR"
+      >
+        <div
+          class="sc-kDTinF eHahVc"
+          data-testid="popularOrderButton"
+        >
+          인기순
+        </div>
+        <div
+          class="sc-kDTinF cSxYEp"
+          data-testid="topRatedOrderButton"
+        >
+          별점순
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-gsDKAQ ddJUoe"
+    >
+      <div
+        class="sc-furwcr fKsSdm"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr bgqqZp"
+      />
+      <div
+        class="sc-furwcr gPYeB"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr bgqqZp"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr gPYeB"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr bgqqZp"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr gPYeB"
+      />
+      <div
+        class="sc-furwcr bgqqZp"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+      <div
+        class="sc-furwcr jtieLe"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PosterList Presentational 에러 발생 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckomfZ"
+  >
+    <div
+      class="sc-iqseJM exHIdu"
+    >
+      <div
+        class="sc-crHmcD jRVExl"
+        data-testid="except"
+      >
+        에러가 발생하였습니다
+      </div>
+    </div>
+  </div>
+</div>
+`;

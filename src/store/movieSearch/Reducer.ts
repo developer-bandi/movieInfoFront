@@ -7,13 +7,13 @@ export interface MovieSearchState {
     keyword: string;
   };
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 const initialState: MovieSearchState = {
   content: { keyword: '' },
   loading: false,
-  error: null,
+  error: false,
 };
 
 const MovieSearchSlice = createSlice({
@@ -27,18 +27,20 @@ const MovieSearchSlice = createSlice({
     ) {
       state.content = { keyword: action.payload.keyword };
       state.loading = true;
-      state.error = null;
+      state.error = false;
     },
     searchMovieSuccess(state, action: PayloadAction<MovieSearchApiData>) {
       state.content.searchResult = action.payload;
       state.loading = false;
     },
     searchMovieFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
     initializeMovieSearch(state) {
-      state = initialState;
+      state.content = { keyword: '' };
+      state.loading = false;
+      state.error = false;
     },
   },
 });

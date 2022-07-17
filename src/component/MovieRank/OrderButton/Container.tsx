@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ReducerType } from '../../../store';
 import { setRankType } from '../../../store/movieRank/Reducer';
-import OrderButton from './Presentational';
+import OrderButtonPresentational from './Presentational';
 
 const OrderButtonContainer = () => {
   const orderType = useSelector(
@@ -12,7 +12,10 @@ const OrderButtonContainer = () => {
     dispatch(setRankType(Type));
   };
   return (
-    <OrderButton orderchange={orderchange} orderType={orderType}></OrderButton>
+    <OrderButtonPresentational
+      orderchange={orderchange}
+      orderType={orderType}
+    />
   );
 };
 

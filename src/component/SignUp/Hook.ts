@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SignUp from './Signup';
 var CryptoJS = require('crypto-js');
 
-const SignUpContainer = () => {
+const useSignUp = () => {
   const [userid, setId] = useState('');
   const [password, setPassword] = useState('');
   const [passwordCheck, setPasswordCheck] = useState('');
@@ -17,7 +16,6 @@ const SignUpContainer = () => {
       const agreeSubmit = window.confirm(
         '가입시 닉네임은 변경할수 없습니다 가입하시겠습니까?'
       );
-
       if (agreeSubmit) {
         if (userid === '' || userid.length > 10) {
           alert('아이디를 정확히 입력하세요');
@@ -46,19 +44,17 @@ const SignUpContainer = () => {
         //아이디 비밀번호 닉네임 조건으로 길이수를 설정하고 통과시에는 회원가입 완료처리
       }
     } catch (err) {
-      throw err;
+      alert('에러가 발생하였습니다');
     }
   };
 
-  return (
-    <SignUp
-      setId={setId}
-      setPassword={setPassword}
-      setNickname={setNickname}
-      setPasswordCheck={setPasswordCheck}
-      submitForm={submitForm}
-    ></SignUp>
-  );
+  return {
+    submitForm,
+    setId,
+    setPassword,
+    setPasswordCheck,
+    setNickname,
+  };
 };
 
-export default SignUpContainer;
+export default useSignUp;

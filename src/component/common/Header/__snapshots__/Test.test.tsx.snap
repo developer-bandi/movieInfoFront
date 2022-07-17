@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Header/> Header 로그아웃 1`] = `
+<div>
+  <header
+    class="sc-bdvvtL bOcBzn"
+  >
+    <h1
+      class="sc-gsDKAQ kzGgeN"
+    >
+      오늘의 영화
+    </h1>
+    <div
+      class="sc-dkPtRN dngAOt"
+    >
+      <button
+        class="sc-hKwDye Spowr"
+      >
+        <a
+          href="/signin"
+        >
+          로그인
+        </a>
+      </button>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`<Header/> Header 로그인 1`] = `
+<div>
+  <header
+    class="sc-bdvvtL bOcBzn"
+  >
+    <h1
+      class="sc-gsDKAQ kzGgeN"
+    >
+      오늘의 영화
+    </h1>
+    <div
+      class="sc-dkPtRN dngAOt"
+    >
+      <div
+        class="sc-eCImPb ldrnGy"
+      >
+        testname
+      </div>
+      님 반갑습니다
+      <button
+        class="sc-hKwDye Spowr"
+      >
+        로그아웃
+      </button>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`Header Presentational 로그인 하지 않았을 경우 1`] = `
+<div>
+  <header
+    class="sc-bdvvtL bOcBzn"
+  >
+    <h1
+      class="sc-gsDKAQ kzGgeN"
+    >
+      오늘의 영화
+    </h1>
+    <div
+      class="sc-dkPtRN dngAOt"
+    >
+      <button
+        class="sc-hKwDye Spowr"
+      >
+        <a
+          href="/signin"
+        >
+          로그인
+        </a>
+      </button>
+    </div>
+  </header>
+</div>
+`;
+
+exports[`Header Presentational 로그인 했을경우 1`] = `
+<div>
+  <header
+    class="sc-bdvvtL bOcBzn"
+  >
+    <h1
+      class="sc-gsDKAQ kzGgeN"
+    >
+      오늘의 영화
+    </h1>
+    <div
+      class="sc-dkPtRN dngAOt"
+    >
+      <div
+        class="sc-eCImPb ldrnGy"
+      >
+        testname
+      </div>
+      님 반갑습니다
+      <button
+        class="sc-hKwDye Spowr"
+      >
+        로그아웃
+      </button>
+    </div>
+  </header>
+</div>
+`;

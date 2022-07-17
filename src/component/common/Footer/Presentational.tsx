@@ -1,6 +1,6 @@
 import styles from './Style';
 
-const Footer = () => {
+const FooterPresentational = () => {
   return (
     <styles.MainBlock>
       <styles.Content>
@@ -12,4 +12,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterPresentational;

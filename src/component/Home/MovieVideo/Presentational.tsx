@@ -5,7 +5,7 @@ interface MovieVideoProps {
   moviekey: HomePosterState;
 }
 
-const MovieVideo = ({ moviekey }: MovieVideoProps) => {
+const MovieVideoPresentational = ({ moviekey }: MovieVideoProps) => {
   if (moviekey.loading) {
     return <styles.Loading />;
   } else if (moviekey.error) {
@@ -31,4 +31,4 @@ const MovieVideo = ({ moviekey }: MovieVideoProps) => {
   }
 };
 
-export default MovieVideo;
+export default MovieVideoPresentational;

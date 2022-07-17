@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PosterList from './Presentational';
+import PosterListPresentational from './Presentational';
 import imagePreload from '../../../lib/imagePreload';
 import { ReducerType } from '../../../store';
 import { movePage } from '../../../store/homePoster/Reducer';
 
-const NowShowingContainer = ({ title }: { title: string }) => {
+const PosterListContainer = ({ title }: { title: string }) => {
   const dispatch = useDispatch();
   const postersData = useSelector((state: ReducerType) => state.homePoster);
   const [nowPage, setNowPage] = useState(
@@ -38,7 +38,7 @@ const NowShowingContainer = ({ title }: { title: string }) => {
 
   return (
     <>
-      <PosterList
+      <PosterListPresentational
         postersData={postersData}
         title={title}
         changePage={changePage}
@@ -52,4 +52,4 @@ const NowShowingContainer = ({ title }: { title: string }) => {
   );
 };
 
-export default NowShowingContainer;
+export default PosterListContainer;

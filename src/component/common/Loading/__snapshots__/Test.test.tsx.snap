@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loading/> Presentational Loading 스냅샷 비교 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ieFVTS"
+  >
+    <img
+      class="sc-gsDKAQ bgYcDx"
+      data-testid="loading"
+      src="loading.gif"
+    />
+    ;
+  </div>
+</div>
+`;
+
+exports[`<Loading/> Presentational 전체 화면 검증 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ieFVTS"
+  >
+    <img
+      class="sc-gsDKAQ bgYcDx"
+      data-testid="loading"
+      src="loading.gif"
+    />
+    ;
+  </div>
+</div>
+`;

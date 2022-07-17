@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Except/> Presentational Except 스냅샷 비교 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL hMdfsV"
+  >
+    <div
+      class="sc-gsDKAQ cnlcfR"
+      data-testid="except"
+    >
+      test
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Except Presentational 전체 화면 검증 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL hMdfsV"
+  >
+    <div
+      class="sc-gsDKAQ cnlcfR"
+      data-testid="except"
+    >
+      test
+    </div>
+  </div>
+</div>
+`;

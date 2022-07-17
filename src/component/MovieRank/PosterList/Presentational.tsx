@@ -8,7 +8,7 @@ interface PosterListProps {
   movieRankList: MovieRankState;
 }
 
-const PosterList = ({ movieRankList }: PosterListProps) => {
+const PosterListPresentational = ({ movieRankList }: PosterListProps) => {
   if (movieRankList.loading) {
     return (
       <styles.MainBlock>
@@ -78,4 +78,4 @@ const PosterList = ({ movieRankList }: PosterListProps) => {
   }
 };
 
-export default PosterList;
+export default PosterListPresentational;

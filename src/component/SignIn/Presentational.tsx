@@ -8,7 +8,11 @@ interface SignInProps {
   checkLogin: () => Promise<void>;
 }
 
-const SignIn = ({ setId, setPassword, checkLogin }: SignInProps) => {
+const SignInPresentational = ({
+  setId,
+  setPassword,
+  checkLogin,
+}: SignInProps) => {
   return (
     <styles.MainBlock>
       <styles.Title>로그인</styles.Title>
@@ -54,7 +58,9 @@ const SignIn = ({ setId, setPassword, checkLogin }: SignInProps) => {
           type="password"
           placeholder="비밀번호"
         />
-        <styles.LoginButton onClick={checkLogin}>로그인하기</styles.LoginButton>
+        <styles.LoginButton onClick={checkLogin} data-testid={'login'}>
+          로그인하기
+        </styles.LoginButton>
         <styles.LocalLoginToolBlock>
           <styles.LocalLoginTool>
             <Link to={'/signup'}>회원가입</Link>
@@ -65,4 +71,4 @@ const SignIn = ({ setId, setPassword, checkLogin }: SignInProps) => {
   );
 };
 
-export default SignIn;
+export default SignInPresentational;

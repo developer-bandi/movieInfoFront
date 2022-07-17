@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FavoriteMovie/> Presentational 로그인 필요 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL hMdfsV"
+  >
+    <div
+      class="sc-gsDKAQ cnlcfR"
+      data-testid="except"
+    >
+      로그인을 진행해주세요
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FavoriteMovie/> Presentational 에러 발생 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL hMdfsV"
+  >
+    <div
+      class="sc-gsDKAQ cnlcfR"
+      data-testid="except"
+    >
+      오류가 발생하였습니다
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FavoriteMovie/> Presentational 저장된 영화 없음 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL hMdfsV"
+  >
+    <div
+      class="sc-gsDKAQ cnlcfR"
+      data-testid="except"
+    >
+      저장된 영화가 없습니다
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<FavoriteMovie/> Presentational 좋아하는 영화 리스트 정상 렌더링 1`] = `
+<div>
+  <div
+    class="sc-dkPtRN iimFIN"
+  >
+    <div
+      class="sc-hKwDye dSCroz"
+    />
+    <div
+      class="sc-iCfMLu gGHDte"
+      draggable="true"
+    >
+      삭제하세요
+    </div>
+  </div>
+</div>
+`;

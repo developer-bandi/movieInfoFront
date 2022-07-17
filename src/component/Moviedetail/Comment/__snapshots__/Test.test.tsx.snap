@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieComment/> Presentational 스냅샷 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL euTXYv"
+  >
+    <div
+      class="sc-gsDKAQ idYvNZ"
+    >
+      <div
+        class="sc-dkPtRN kcyxwW"
+      >
+        <div
+          class="sc-hKwDye lhRTGn"
+        >
+          <div
+            class="sc-eCImPb hZjPQD"
+          >
+            test
+          </div>
+          <div
+            class="sc-jRQBWg ikjKwU"
+          >
+            방금전
+          </div>
+          <svg
+            class="sc-gKclnd kEgghG"
+            data-testid="deleteButton"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+            />
+          </svg>
+        </div>
+        <div
+          class="sc-iCfMLu hduNzp"
+        >
+          test
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-furwcr kCpfWk"
+    >
+      <textarea
+        class="sc-pVTFL QgQDl"
+      />
+      <div
+        class="sc-jrQzAO ejZmHN"
+      >
+        등록
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`MovieComment Presentational 전체 화면 검증 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL euTXYv"
+  >
+    <div
+      class="sc-gsDKAQ idYvNZ"
+    >
+      <div
+        class="sc-dkPtRN kcyxwW"
+      >
+        <div
+          class="sc-hKwDye lhRTGn"
+        >
+          <div
+            class="sc-eCImPb hZjPQD"
+          >
+            test
+          </div>
+          <div
+            class="sc-jRQBWg ikjKwU"
+          >
+            방금전
+          </div>
+          <svg
+            class="sc-gKclnd kEgghG"
+            data-testid="deleteButton"
+            fill="currentColor"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"
+            />
+          </svg>
+        </div>
+        <div
+          class="sc-iCfMLu hduNzp"
+        >
+          test
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-furwcr kCpfWk"
+    >
+      <textarea
+        class="sc-pVTFL QgQDl"
+      />
+      <div
+        class="sc-jrQzAO ejZmHN"
+      >
+        등록
+      </div>
+    </div>
+  </div>
+</div>
+`;

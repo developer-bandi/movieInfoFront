@@ -67,7 +67,7 @@ const SearchButton = styled(AiOutlineSearch)`
   }
 `;
 
-const LatestSearchListBlock = styled.div<{ active: boolean }>`
+const LatestSearchListBlock = styled.div`
   background: white;
   border: 1px solid black;
   border-top: none;
@@ -77,11 +77,6 @@ const LatestSearchListBlock = styled.div<{ active: boolean }>`
     width: 20rem;
     font-size: 15px;
   }
-  ${(props) =>
-    props.active &&
-    css`
-      display: block;
-    `}
 `;
 
 const LatestSearchNull = styled.div`

@@ -1,7 +1,7 @@
 export interface MovieCommentApiData {
   id: number;
   content: string;
-  createdAt: string;
+  createdAt: Date;
   User: {
     id: number;
     nick: string;

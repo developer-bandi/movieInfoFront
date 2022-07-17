@@ -15,7 +15,7 @@ interface FavoriteMovieProps {
   viewRef: (node?: Element | null | undefined) => void;
 }
 
-const FavoriteMovie = ({
+const FavoriteMoviePresentational = ({
   likeMovies,
   dragEnd,
   dragOver,
@@ -27,12 +27,12 @@ const FavoriteMovie = ({
   end,
   viewRef,
 }: FavoriteMovieProps) => {
-  if (likeMovies.content === undefined) {
+  if (likeMovies.error) {
+    return <Except text={'오류가 발생하였습니다'} />;
+  } else if (likeMovies.content === undefined) {
     return <Except text={'로그인을 진행해주세요'} />;
   } else if (likeMovies.content.length === 0) {
     return <Except text={'저장된 영화가 없습니다'} />;
-  } else if (likeMovies.error) {
-    return <Except text={'오류가 발생하였습니다'} />;
   } else {
     return (
       <styles.MainBlock>
@@ -72,4 +72,4 @@ const FavoriteMovie = ({
   }
 };
 
-export default FavoriteMovie;
+export default FavoriteMoviePresentational;

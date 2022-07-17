@@ -5,18 +5,23 @@ interface OrderButtonProps {
   orderType: string;
 }
 
-const OrderButton = ({ orderType, orderchange }: OrderButtonProps) => {
+const OrderButtonPresentational = ({
+  orderType,
+  orderchange,
+}: OrderButtonProps) => {
   return (
     <styles.OrderButtonBlock>
       <styles.OrderButtonSubBlock>
         <styles.OrderButton
-          onClick={() => orderchange('인기순')}
+          data-testid={'popularOrderButton'}
+          onClick={() => orderchange('popular')}
           active={orderType === 'popular'}
         >
           인기순
         </styles.OrderButton>
         <styles.OrderButton
-          onClick={() => orderchange('별점순')}
+          data-testid={'topRatedOrderButton'}
+          onClick={() => orderchange('topRated')}
           active={orderType === 'topRated'}
         >
           별점순
@@ -26,4 +31,4 @@ const OrderButton = ({ orderType, orderchange }: OrderButtonProps) => {
   );
 };
 
-export default OrderButton;
+export default OrderButtonPresentational;

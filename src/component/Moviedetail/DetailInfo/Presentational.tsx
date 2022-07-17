@@ -2,7 +2,6 @@ import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
 import styles from './Style';
 import { MovieDetailState } from '../../../store/movieDetail/Reducer';
 import { UserState } from '../../../store/user/Reducer';
-import { MovieCommentState } from '../../../store/movieCommet/Reducer';
 
 interface MovieContentProps {
   movieDetailData: MovieDetailState;
@@ -11,7 +10,7 @@ interface MovieContentProps {
   user: UserState;
 }
 
-const MovieContent = ({
+const DetailInfoPresentational = ({
   movieDetailData,
   favoriteSetting,
   favorite,
@@ -26,7 +25,10 @@ const MovieContent = ({
         />
         <styles.InfoListBlock>
           {user.content ? (
-            <styles.FavoriteButton onClick={favoriteSetting}>
+            <styles.FavoriteButton
+              onClick={favoriteSetting}
+              data-testid={'FavoriteButton'}
+            >
               {favorite ? (
                 <AiFillStar size={40} />
               ) : (
@@ -61,4 +63,4 @@ const MovieContent = ({
 const infoTitle = ['개봉', '장르', '국가', '러닝타임', '평점'];
 const infoTitleEn = ['releaseDate', 'genres', 'nation', 'runtime', 'rate'];
 
-export default MovieContent;
+export default DetailInfoPresentational;

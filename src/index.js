@@ -10,7 +10,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import rootReducer, { rootSaga } from './store';
 
 const sagaMiddleware = createSagaMiddleware();
-const store = configureStore({
+export const store = configureStore({
   reducer: rootReducer,
   middleware: [sagaMiddleware],
   devTools: true,
@@ -27,7 +27,7 @@ ReactDOM.render(
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root') || document.createElement('div')
 );
 
 // If you want to start measuring performance in your app, pass a function

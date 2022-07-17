@@ -12,7 +12,7 @@ const initialState: MovieDetailState = {
   error: false,
 };
 
-const HomePosterSlice = createSlice({
+const MovieDetailSlice = createSlice({
   name: 'movieDetail',
   initialState,
 
@@ -41,6 +41,6 @@ export const {
   getMovieDetailSuccess,
   getMovieDetailFailure,
   initializeMovieDetail,
-} = HomePosterSlice.actions;
+} = MovieDetailSlice.actions;
 
-export default HomePosterSlice.reducer;
+export default MovieDetailSlice.reducer;

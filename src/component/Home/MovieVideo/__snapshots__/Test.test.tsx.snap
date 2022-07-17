@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MovieVideo/> Presentational 로딩중 1`] = `
+<div>
+  <div
+    class="sc-gsDKAQ coKEUB"
+  />
+</div>
+`;
+
+exports[`<MovieVideo/> Presentational 에러발생 1`] = `
+<div>
+  <div
+    class="sc-dkPtRN bFvZKz"
+  >
+    <div
+      class="sc-hKwDye iueJYE"
+    >
+      에러가 발생하였습니다
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<MovieVideo/> Presentational 정상 작동 1`] = `
+<div>
+  <section
+    class="sc-bdvvtL fJWURB"
+  >
+    <div
+      style="width: 100%; height: 100%;"
+    />
+  </section>
+</div>
+`;

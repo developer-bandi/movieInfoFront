@@ -4,12 +4,12 @@ interface ExceptProps {
   text: string;
 }
 
-const Except = ({ text }: ExceptProps) => {
+const ExceptPresentational = ({ text }: ExceptProps) => {
   return (
     <styles.MainBlock>
-      <styles.Content>{text}</styles.Content>
+      <styles.Content data-testid={'except'}>{text}</styles.Content>
     </styles.MainBlock>
   );
 };
 
-export default Except;
+export default ExceptPresentational;

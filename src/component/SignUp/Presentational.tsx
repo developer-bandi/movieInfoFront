@@ -8,7 +8,7 @@ interface SignUpProps {
   setNickname: React.Dispatch<React.SetStateAction<string>>;
   submitForm: () => void;
 }
-const SignUp = ({
+const SignUpPresentational = ({
   setId,
   setPassword,
   setPasswordCheck,
@@ -25,6 +25,7 @@ const SignUp = ({
           onChange={(e) => {
             setId(e.target.value);
           }}
+          data-testid={'id'}
         ></styles.InfoInput>
       </section>
       <section>
@@ -35,6 +36,7 @@ const SignUp = ({
             setPassword(e.target.value);
           }}
           type="password"
+          data-testid={'password'}
         />
       </section>
       <section>
@@ -45,6 +47,7 @@ const SignUp = ({
             setPasswordCheck(e.target.value);
           }}
           type="password"
+          data-testid={'passwordCheck'}
         />
       </section>
       <section>
@@ -54,11 +57,14 @@ const SignUp = ({
           onChange={(e) => {
             setNickname(e.target.value);
           }}
+          data-testid={'nickname'}
         />
       </section>
-      <styles.SubmitButton onClick={submitForm}>가입하기</styles.SubmitButton>
+      <styles.SubmitButton onClick={submitForm} data-testid={'submitButton'}>
+        가입하기
+      </styles.SubmitButton>
     </styles.MainBlock>
   );
 };
 
-export default SignUp;
+export default SignUpPresentational;

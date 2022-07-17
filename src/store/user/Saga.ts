@@ -31,10 +31,7 @@ export function* getCheckLoginSaga() {
   yield all([takeLeading('user/checkLoginuser', axiosGetCheckLoginApi)]);
 }
 
-function* axiosGetLogoutApi(action: {
-  type: string;
-  payload: { movieId: string; content: string };
-}) {
+function* axiosGetLogoutApi() {
   try {
     yield call(axiosGetLogout);
     yield put(initializeFavoriteMovie());

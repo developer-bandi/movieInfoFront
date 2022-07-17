@@ -10,7 +10,7 @@ interface PosterListProps {
   changePage: (position: string) => void;
   page: number;
 }
-const PosterList = ({
+const PosterListPresentational = ({
   title,
   postersData,
   changePage,
@@ -119,4 +119,4 @@ const PosterList = ({
 
 //이미지를 미리 로드해 두는 함수이다.
 
-export default PosterList;
+export default PosterListPresentational;

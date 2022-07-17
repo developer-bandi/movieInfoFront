@@ -7,9 +7,9 @@ import {
   addMovieComment,
   deleteMovieComment,
 } from '../../../store/movieCommet/Reducer';
-import MovieComment from './Presentational';
+import CommentPresentational from './Presentational';
 
-const MovieCommentContainer = () => {
+const CommentContainer = () => {
   const commentList = useSelector((state: ReducerType) => state.moiveComment);
   const loginedUser = useSelector((state: ReducerType) => state.user);
   const [comment, setComment] = useState('');
@@ -38,14 +38,14 @@ const MovieCommentContainer = () => {
   };
 
   return (
-    <MovieComment
+    <CommentPresentational
       uploadComment={uploadComment}
       settingComment={settingComment}
       deleteComment={deleteComment}
       commentList={commentList}
       loginedUserId={loginedUser.content?.id}
-    ></MovieComment>
+    />
   );
 };
 
-export default MovieCommentContainer;
+export default CommentContainer;

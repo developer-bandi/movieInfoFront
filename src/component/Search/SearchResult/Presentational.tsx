@@ -9,29 +9,29 @@ import Except from '../../common/Except/Presentational';
 
 interface SearchResultProps {
   searchResult: MovieSearchState;
-  prevPage: () => void;
-  nextPage: () => void;
-  activepage: number;
-  start: number;
-  end: number;
-  goPage: (index: number) => void;
+  setPrevPageList: () => void;
+  setNextPageList: () => void;
+  activepageNumber: number;
+  selectPage: (index: number) => void;
+  pageListNumber: number;
 }
 
-const SearchResult = ({
+const SearchResultPresentational = ({
   searchResult,
-  activepage,
-  prevPage,
-  nextPage,
-  start,
-  end,
-  goPage,
+  setPrevPageList,
+  setNextPageList,
+  activepageNumber,
+  selectPage,
+  pageListNumber,
 }: SearchResultProps) => {
   if (searchResult.loading) {
-    return <Loading></Loading>;
+    return <Loading data-testid={'loading'}></Loading>;
   } else if (searchResult.error) {
-    return <Except text="에러가 발생하였습니다" />;
+    return <Except text="에러가 발생하였습니다" data-testid={'error'} />;
   } else if (searchResult.content.searchResult === undefined) {
-    return <Except text="" />;
+    return <Except text="" data-testid={'blank'} />;
+  } else if (searchResult.content.searchResult.results.length === 0) {
+    return <Except text="검색 결과가 없습니다" data-testid={'noResult'} />;
   } else {
     return (
       <styles.MainBlock>
@@ -66,37 +66,40 @@ const SearchResult = ({
           );
         })}
         <styles.PagenationBlock>
-          <styles.MovePage
-            onClick={prevPage}
-            active={activepage === 1 ? 'true' : 'false'}
-          >
-            <IoIosArrowBack />
-          </styles.MovePage>
-          {new Array(end - start + 1).fill(0).map((value, index) => {
-            return (
-              <styles.PageButton
-                active={activepage === index + start}
-                onClick={() => goPage(index)}
-                key={index}
-              >
-                {index + start}
-              </styles.PageButton>
-            );
-          })}
-          <styles.MovePage
-            onClick={nextPage}
-            active={
-              activepage === searchResult.content.searchResult?.totalPage
-                ? 'true'
-                : 'false'
-            }
-          >
-            <IoIosArrowForward />
-          </styles.MovePage>
+          {pageListNumber !== 1 ? (
+            <styles.MovePage onClick={setPrevPageList}>
+              <IoIosArrowBack data-testid={'prev'} size={20} />
+            </styles.MovePage>
+          ) : null}
+          {new Array(
+            pageListNumber * 5 >= searchResult.content.searchResult.totalPage
+              ? searchResult.content.searchResult.totalPage -
+                (pageListNumber - 1) * 5
+              : 5
+          )
+            .fill(0)
+            .map((value, index) => {
+              return (
+                <styles.PageButton
+                  active={
+                    activepageNumber === index + 1 + (pageListNumber - 1) * 5
+                  }
+                  onClick={() => selectPage(index + 1)}
+                  key={index}
+                >
+                  {index + 1 + (pageListNumber - 1) * 5}
+                </styles.PageButton>
+              );
+            })}
+          {pageListNumber * 5 < searchResult.content.searchResult.totalPage ? (
+            <styles.MovePage onClick={setNextPageList}>
+              <IoIosArrowForward data-testid={'next'} size={20} />
+            </styles.MovePage>
+          ) : null}
         </styles.PagenationBlock>
       </styles.MainBlock>
     );
   }
 };
 
-export default SearchResult;
+export default SearchResultPresentational;

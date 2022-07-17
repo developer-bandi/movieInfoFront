@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Footer/> Footer 스냅샷 비교 1`] = `
+<div>
+  <footer
+    class="sc-bdvvtL iRKeFJ"
+  >
+    <div
+      class="sc-gsDKAQ kXergA"
+    >
+      이 사이트는 개인 포트폴리오용 사이트입니다
+    </div>
+    <div
+      class="sc-gsDKAQ kXergA"
+    >
+      Copyright 2022. 김상두 all right reserved
+    </div>
+    <div
+      class="sc-gsDKAQ kXergA"
+    >
+      Source by TMDB
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`<Footer/> 전체 화면 검증 1`] = `
+<div>
+  <footer
+    class="sc-bdvvtL iRKeFJ"
+  >
+    <div
+      class="sc-gsDKAQ kXergA"
+    >
+      이 사이트는 개인 포트폴리오용 사이트입니다
+    </div>
+    <div
+      class="sc-gsDKAQ kXergA"
+    >
+      Copyright 2022. 김상두 all right reserved
+    </div>
+    <div
+      class="sc-gsDKAQ kXergA"
+    >
+      Source by TMDB
+    </div>
+  </footer>
+</div>
+`;

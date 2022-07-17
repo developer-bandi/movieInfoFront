@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignIn Presentational 전체 화면 체크 1`] = `
+<div>
+  <main
+    class="sc-bdvvtL oTaWz"
+  >
+    <h1
+      class="sc-gsDKAQ cnDTFv"
+    >
+      로그인
+    </h1>
+    <section>
+      <a
+        class="sc-dkPtRN bBFgeL"
+        href="http://localhost:8001/auth/naver"
+        target="_blank"
+      >
+        <div
+          class="sc-hKwDye kauDnZ"
+        >
+          <div
+            class="sc-eCImPb fTNhwO"
+          >
+            N
+          </div>
+          <div
+            class="sc-jRQBWg cUqyvw"
+          >
+            네이버 로그인
+          </div>
+        </div>
+      </a>
+      <a
+        class="sc-gKclnd dLVobK"
+        href="http://localhost:8001/auth/kakao"
+        target="_blank"
+      >
+        <div
+          class="sc-iCfMLu hcVoBx"
+        >
+          <img
+            alt="x"
+            class="sc-furwcr cjOFej"
+            src="kakaoicon.png"
+          />
+          <div
+            class="sc-pVTFL eHzQxr"
+          >
+            카카오 로그인
+          </div>
+        </div>
+      </a>
+      <div
+        class="sc-jrQzAO kjDrFI"
+      >
+        네이버 로그인의 경우 검수를 받지않아 관리자만 이용할수 있습니다
+      </div>
+    </section>
+    <div
+      class="sc-kDTinF jDzdAA"
+    >
+      <hr
+        class="sc-iqseJM XJnxr"
+      />
+      <span
+        class="sc-crHmcD jhAqhz"
+      >
+        또는
+      </span>
+      <hr
+        class="sc-iqseJM XJnxr"
+      />
+    </div>
+    <section>
+      <input
+        class="sc-egiyK dzlrIo"
+        placeholder="아이디"
+      />
+      <input
+        class="sc-egiyK dzlrIo"
+        placeholder="비밀번호"
+        type="password"
+      />
+      <button
+        class="sc-bqiRlB kqNncU"
+        data-testid="login"
+      >
+        로그인하기
+      </button>
+      <div
+        class="sc-ksdxgE jsSzDP"
+      >
+        <div
+          class="sc-hBUSln eAfvkl"
+        >
+          <a
+            href="/signup"
+          >
+            회원가입
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+`;

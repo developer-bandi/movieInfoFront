@@ -1,0 +1,480 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchResult Presentational 결과 없음 1`] = `
+<div>
+  <div
+    class="sc-crHmcD hAuXPM"
+  >
+    <div
+      class="sc-egiyK fcOVsL"
+      data-testid="except"
+    >
+      에러가 발생하였습니다
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SearchResult Presentational 로딩중 1`] = `
+<div>
+  <div
+    class="sc-kDTinF hjqJdy"
+  >
+    <img
+      class="sc-iqseJM dwFJvL"
+      data-testid="loading"
+      src="loading.gif"
+    />
+    ;
+  </div>
+</div>
+`;
+
+exports[`SearchResult Presentational 에러 발생 1`] = `
+<div>
+  <div
+    class="sc-crHmcD hAuXPM"
+  >
+    <div
+      class="sc-egiyK fcOVsL"
+      data-testid="except"
+    >
+      에러가 발생하였습니다
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SearchResult Presentational 정상 출력 검색 리스트 출력 검증 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckqPWU"
+  >
+    <a
+      class="sc-gsDKAQ YHYaT"
+      href="/moviedetail/123456"
+    >
+      <img
+        alt="poster"
+        class="sc-dkPtRN eZiIAo"
+        src="https://image.tmdb.org/t/p/w500testPath"
+      />
+      <div
+        class="sc-hKwDye gyUwbE"
+      >
+        <div
+          class="sc-eCImPb fJhZTf"
+        >
+           
+          test
+        </div>
+        <div
+          class="sc-jRQBWg hHgpWM"
+        >
+          <div
+            class="sc-gKclnd lgENuB"
+          >
+            개봉
+          </div>
+          <div
+            class="sc-iCfMLu jLUtnt"
+          >
+            testDate
+          </div>
+        </div>
+        <div
+          class="sc-jRQBWg hHgpWM"
+        >
+          <div
+            class="sc-gKclnd lgENuB"
+          >
+            평점
+          </div>
+          <div
+            class="sc-iCfMLu jLUtnt"
+          >
+            9
+          </div>
+        </div>
+      </div>
+    </a>
+    <div
+      class="sc-furwcr hRrBwF"
+    >
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        0
+      </div>
+      <div
+        class="sc-pVTFL jBzWTV"
+      >
+        1
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        2
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        3
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        4
+      </div>
+      <div
+        class="sc-jrQzAO iLjvwk"
+      >
+        <svg
+          data-testid="next"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SearchResult Presentational 정상 출력 페이지 버튼 출력 검증 마지막 리스트 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckqPWU"
+  >
+    <a
+      class="sc-gsDKAQ YHYaT"
+      href="/moviedetail/123456"
+    >
+      <img
+        alt="poster"
+        class="sc-dkPtRN eZiIAo"
+        src="https://image.tmdb.org/t/p/w500testPath"
+      />
+      <div
+        class="sc-hKwDye gyUwbE"
+      >
+        <div
+          class="sc-eCImPb fJhZTf"
+        >
+           
+          test
+        </div>
+        <div
+          class="sc-jRQBWg hHgpWM"
+        >
+          <div
+            class="sc-gKclnd lgENuB"
+          >
+            개봉
+          </div>
+          <div
+            class="sc-iCfMLu jLUtnt"
+          >
+            testDate
+          </div>
+        </div>
+        <div
+          class="sc-jRQBWg hHgpWM"
+        >
+          <div
+            class="sc-gKclnd lgENuB"
+          >
+            평점
+          </div>
+          <div
+            class="sc-iCfMLu jLUtnt"
+          >
+            9
+          </div>
+        </div>
+      </div>
+    </a>
+    <div
+      class="sc-furwcr hRrBwF"
+    >
+      <div
+        class="sc-jrQzAO iLjvwk"
+      >
+        <svg
+          data-testid="prev"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"
+          />
+        </svg>
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        10
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        11
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        12
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        13
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        14
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SearchResult Presentational 정상 출력 페이지 버튼 출력 검증 중간 리스트 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckqPWU"
+  >
+    <a
+      class="sc-gsDKAQ YHYaT"
+      href="/moviedetail/123456"
+    >
+      <img
+        alt="poster"
+        class="sc-dkPtRN eZiIAo"
+        src="https://image.tmdb.org/t/p/w500testPath"
+      />
+      <div
+        class="sc-hKwDye gyUwbE"
+      >
+        <div
+          class="sc-eCImPb fJhZTf"
+        >
+           
+          test
+        </div>
+        <div
+          class="sc-jRQBWg hHgpWM"
+        >
+          <div
+            class="sc-gKclnd lgENuB"
+          >
+            개봉
+          </div>
+          <div
+            class="sc-iCfMLu jLUtnt"
+          >
+            testDate
+          </div>
+        </div>
+        <div
+          class="sc-jRQBWg hHgpWM"
+        >
+          <div
+            class="sc-gKclnd lgENuB"
+          >
+            평점
+          </div>
+          <div
+            class="sc-iCfMLu jLUtnt"
+          >
+            9
+          </div>
+        </div>
+      </div>
+    </a>
+    <div
+      class="sc-furwcr hRrBwF"
+    >
+      <div
+        class="sc-jrQzAO iLjvwk"
+      >
+        <svg
+          data-testid="prev"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M217.9 256L345 129c9.4-9.4 9.4-24.6 0-33.9-9.4-9.4-24.6-9.3-34 0L167 239c-9.1 9.1-9.3 23.7-.7 33.1L310.9 417c4.7 4.7 10.9 7 17 7s12.3-2.3 17-7c9.4-9.4 9.4-24.6 0-33.9L217.9 256z"
+          />
+        </svg>
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        5
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        6
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        7
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        8
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        9
+      </div>
+      <div
+        class="sc-jrQzAO iLjvwk"
+      >
+        <svg
+          data-testid="next"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SearchResult Presentational 정상 출력 페이지 버튼 출력 검증 첫 페이지 리스트 1`] = `
+<div>
+  <div
+    class="sc-bdvvtL ckqPWU"
+  >
+    <a
+      class="sc-gsDKAQ YHYaT"
+      href="/moviedetail/123456"
+    >
+      <img
+        alt="poster"
+        class="sc-dkPtRN eZiIAo"
+        src="https://image.tmdb.org/t/p/w500testPath"
+      />
+      <div
+        class="sc-hKwDye gyUwbE"
+      >
+        <div
+          class="sc-eCImPb fJhZTf"
+        >
+           
+          test
+        </div>
+        <div
+          class="sc-jRQBWg hHgpWM"
+        >
+          <div
+            class="sc-gKclnd lgENuB"
+          >
+            개봉
+          </div>
+          <div
+            class="sc-iCfMLu jLUtnt"
+          >
+            testDate
+          </div>
+        </div>
+        <div
+          class="sc-jRQBWg hHgpWM"
+        >
+          <div
+            class="sc-gKclnd lgENuB"
+          >
+            평점
+          </div>
+          <div
+            class="sc-iCfMLu jLUtnt"
+          >
+            9
+          </div>
+        </div>
+      </div>
+    </a>
+    <div
+      class="sc-furwcr hRrBwF"
+    >
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        0
+      </div>
+      <div
+        class="sc-pVTFL jBzWTV"
+      >
+        1
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        2
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        3
+      </div>
+      <div
+        class="sc-pVTFL cVaegz"
+      >
+        4
+      </div>
+      <div
+        class="sc-jrQzAO iLjvwk"
+      >
+        <svg
+          data-testid="next"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          stroke-width="0"
+          viewBox="0 0 512 512"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M294.1 256L167 129c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.3 34 0L345 239c9.1 9.1 9.3 23.7.7 33.1L201.1 417c-4.7 4.7-10.9 7-17 7s-12.3-2.3-17-7c-9.4-9.4-9.4-24.6 0-33.9l127-127.1z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;

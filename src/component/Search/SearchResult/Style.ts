@@ -73,26 +73,27 @@ const PagenationBlock = styled.div`
   height: 3rem;
 `;
 const PageButton = styled.div<{ active: boolean }>`
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 1px solid black;
+  width: 2rem;
+  height: 2rem;
+  color: gray;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 5px;
+  cursor: pointer;
   ${(props) =>
     props.active &&
     css`
-      background: gray;
-    `}
+      background: #4a90e2;
+      color: white;
+    `};
 `;
 
-const MovePage = styled.div<{ active: string }>`
+const MovePage = styled.div`
   display: inline;
-  ${(props) =>
-    props.active === 'true' &&
-    css`
-      display: none;
-    `}
+  cursor: pointer;
 `;
 
 const styles = {

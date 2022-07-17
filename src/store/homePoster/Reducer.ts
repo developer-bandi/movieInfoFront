@@ -11,7 +11,7 @@ export interface HomePosterState {
     };
   };
   loading: boolean;
-  error: string | null;
+  error: boolean;
 }
 
 const initialState: HomePosterState = {
@@ -22,7 +22,7 @@ const initialState: HomePosterState = {
     },
   },
   loading: true,
-  error: null,
+  error: false,
 };
 
 const HomePosterSlice = createSlice({
@@ -38,7 +38,7 @@ const HomePosterSlice = createSlice({
     },
 
     getHomePosterFailure(state) {
-      state.error = '에러 발생';
+      state.error = true;
       state.loading = false;
     },
 

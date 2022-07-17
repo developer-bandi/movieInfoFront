@@ -1,18 +1,16 @@
 import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { useDispatch, useSelector } from 'react-redux';
-import FavoriteMovie from './Presentational';
 import { ReducerType } from '../../store';
 import { deleteFavoriteMovie } from '../../store/favoriteMovie/Reducer';
-import { useInView } from 'react-intersection-observer';
 
-const FavoriteMovieContainer = () => {
-  const dispatch = useDispatch();
+const useFavoriteHook = () => {
   const likeMovies = useSelector((state: ReducerType) => state.favoriteMovie);
   const [deleteBox, setDeleteBox] = useState(false); //드래그 시작시 , 취소시 드롭공간 on off 하기위한 값
   const [boxOver, setBoxOver] = useState('false'); //드래그 요소 드랍공간에 올라올시 투명도 관리를 위한 값
   const [end, setEnd] = useState(10);
   const [viewRef, inView] = useInView(); //무한스크롤 훅
-
+  const dispatch = useDispatch();
   useEffect(() => {
     if (likeMovies.content !== undefined) {
       if (inView) {
@@ -76,20 +74,19 @@ const FavoriteMovieContainer = () => {
   };
   //드롭요소에서 벗어날경우 투명도를 높여준다.
 
-  return (
-    <FavoriteMovie
-      dragStart={dragStart}
-      dragEnd={dragEnd}
-      dragOver={dragOver}
-      dropLeave={dropLeave}
-      dropPoster={dropPoster}
-      likeMovies={likeMovies}
-      deleteBox={deleteBox}
-      boxOver={boxOver}
-      end={end}
-      viewRef={viewRef}
-    />
-  );
+  return {
+    likeMovies,
+    dragStart,
+    dragEnd,
+    dragOver,
+    dropLeave,
+    dropPoster,
+    deleteBox,
+    boxOver,
+    end,
+    viewRef,
+    inView,
+  };
 };
 
-export default FavoriteMovieContainer;
+export default useFavoriteHook;

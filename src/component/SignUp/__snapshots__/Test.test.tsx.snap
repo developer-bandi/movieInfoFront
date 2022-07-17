@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignIn Presentational 전체 화면 체크 1`] = `
+<div>
+  <main
+    class="sc-bdvvtL eNTxIt"
+  >
+    <h1
+      class="sc-gsDKAQ hpyiGY"
+    >
+      회원가입
+    </h1>
+    <section>
+      <h5
+        class="sc-dkPtRN gaXLmf"
+      >
+        아이디
+      </h5>
+      <input
+        class="sc-hKwDye jUfeuU"
+        data-testid="id"
+        placeholder="아이디를 10자리 미만으로 기입하세요"
+      />
+    </section>
+    <section>
+      <h5
+        class="sc-dkPtRN gaXLmf"
+      >
+        비밀번호
+      </h5>
+      <input
+        class="sc-hKwDye jUfeuU"
+        data-testid="password"
+        placeholder="비밀번호를 10자리 미만으로 기입하세요"
+        type="password"
+      />
+    </section>
+    <section>
+      <h5
+        class="sc-dkPtRN gaXLmf"
+      >
+        비밀번호 확인
+      </h5>
+      <input
+        class="sc-hKwDye jUfeuU"
+        data-testid="passwordCheck"
+        placeholder="위와 동일한 비밀번호를 입력하세요"
+        type="password"
+      />
+    </section>
+    <section>
+      <h5
+        class="sc-dkPtRN gaXLmf"
+      >
+        닉네임
+      </h5>
+      <input
+        class="sc-hKwDye jUfeuU"
+        data-testid="nickname"
+        placeholder="닉네임을 5자리 미만으로 기입하세요"
+      />
+    </section>
+    <div
+      class="sc-eCImPb kWtwVz"
+      data-testid="submitButton"
+    >
+      가입하기
+    </div>
+  </main>
+</div>
+`;
+
+exports[`SignIn Presentational 전체 화면 체크 2`] = `
+<div>
+  <main
+    class="sc-bdvvtL eNTxIt"
+  >
+    <h1
+      class="sc-gsDKAQ hpyiGY"
+    >
+      회원가입
+    </h1>
+    <section>
+      <h5
+        class="sc-dkPtRN gaXLmf"
+      >
+        아이디
+      </h5>
+      <input
+        class="sc-hKwDye jUfeuU"
+        data-testid="id"
+        placeholder="아이디를 10자리 미만으로 기입하세요"
+      />
+    </section>
+    <section>
+      <h5
+        class="sc-dkPtRN gaXLmf"
+      >
+        비밀번호
+      </h5>
+      <input
+        class="sc-hKwDye jUfeuU"
+        data-testid="password"
+        placeholder="비밀번호를 10자리 미만으로 기입하세요"
+        type="password"
+      />
+    </section>
+    <section>
+      <h5
+        class="sc-dkPtRN gaXLmf"
+      >
+        비밀번호 확인
+      </h5>
+      <input
+        class="sc-hKwDye jUfeuU"
+        data-testid="passwordCheck"
+        placeholder="위와 동일한 비밀번호를 입력하세요"
+        type="password"
+      />
+    </section>
+    <section>
+      <h5
+        class="sc-dkPtRN gaXLmf"
+      >
+        닉네임
+      </h5>
+      <input
+        class="sc-hKwDye jUfeuU"
+        data-testid="nickname"
+        placeholder="닉네임을 5자리 미만으로 기입하세요"
+      />
+    </section>
+    <div
+      class="sc-eCImPb kWtwVz"
+      data-testid="submitButton"
+    >
+      가입하기
+    </div>
+  </main>
+</div>
+`;

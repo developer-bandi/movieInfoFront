@@ -7,7 +7,7 @@ interface HeaderProps {
   logout: () => void;
 }
 
-const Header = ({ userInfo, logout }: HeaderProps) => {
+const HeaderPresentational = ({ userInfo, logout }: HeaderProps) => {
   return (
     <styles.MainBlock>
       <styles.Title>오늘의 영화</styles.Title>
@@ -28,4 +28,4 @@ const Header = ({ userInfo, logout }: HeaderProps) => {
   );
 };
 
-export default Header;
+export default HeaderPresentational;

@@ -7,14 +7,16 @@ const OrderButtonBlock = styled.div`
   margin: auto;
   display: flex;
   justify-content: end;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  cursor: pointer;
   @media screen and (max-width: 500px) {
     width: 22rem;
   }
 `;
 const OrderButtonSubBlock = styled.div`
   border: 3px solid black;
-  width: 7rem;
+  width: 8rem;
+  height: 2rem;
   border-radius: 5px;
   display: flex;
   @media screen and (max-width: 500px) {
@@ -24,7 +26,7 @@ const OrderButtonSubBlock = styled.div`
 const OrderButton = styled.div<{ active: boolean }>`
   display: flex;
   justify-content: center;
-  width: 3.5rem;
+  width: 4rem;
   align-items: center;
   font-size: 20px;
   font-weight: bold;

@@ -12,7 +12,7 @@ interface Props {
   commentList: MovieCommentState;
   loginedUserId: undefined | number;
 }
-const MovieComment = ({
+const CommentPresentational = ({
   uploadComment,
   settingComment,
   deleteComment,
@@ -23,21 +23,22 @@ const MovieComment = ({
     <styles.MainBlock>
       <styles.CommentListBlock>
         {commentList.content !== undefined &&
-          commentList.content.map((data, index) => {
+          commentList.content.map((comment, index) => {
             return (
               <styles.CommentBlock key={index}>
                 <styles.InfoBlock>
-                  <styles.Nickname>{data.User.nick}</styles.Nickname>
-                  <styles.Date>{setDate(data.createdAt)}</styles.Date>
-                  {loginedUserId == data.User.id ? (
+                  <styles.Nickname>{comment.User.nick}</styles.Nickname>
+                  <styles.Date>{setDate(comment.createdAt)}</styles.Date>
+                  {loginedUserId == comment.User.id ? (
                     <styles.DeleteButton
                       onClick={(e) => {
-                        deleteComment(data.id, index);
+                        deleteComment(comment.id, index);
                       }}
+                      data-testid={'deleteButton'}
                     />
                   ) : null}
                 </styles.InfoBlock>
-                <styles.Content>{data.content}</styles.Content>
+                <styles.Content>{comment.content}</styles.Content>
               </styles.CommentBlock>
             );
           })}
@@ -53,4 +54,4 @@ const MovieComment = ({
   );
 };
 
-export default MovieComment;
+export default CommentPresentational;
